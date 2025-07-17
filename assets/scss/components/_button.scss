@@ -1,0 +1,27 @@
+.btnLink {
+    &__wrap {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 8px;
+        column-gap: 16px;
+    }
+
+    padding: 12px 30px;
+    border-radius: 8px;
+    background-color: $primary;
+    color: #fff !important;
+    outline: none !important;
+    border: 1px solid $primary;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-flex;
+    text-decoration: none !important;
+    transition: all 0.3s;
+
+    &:hover {
+        background-color: #fff;
+        color: $primary !important;
+    }
+}
