@@ -5,6 +5,9 @@ define('TEMPLATE_PATH', CHILD_PATH . '/elementor-widgets/template/');
 if (!defined('_S_VERSION')) {
     define('_S_VERSION', '1.0.0');
 }
+if (! defined('MEMORY_LIMIT')) {
+    define('MEMORY_LIMIT', '256M');
+}
 // get currernt lang
 define('LANG', function_exists('pll_current_language') ? pll_current_language('slug') : 'vi');
 
