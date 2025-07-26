@@ -19,6 +19,13 @@ get_header();
             </div>
         </div>
 
+        <div class="col-12">
+            <div class="form_group_box">
+                <label for="textarea-mess" class="form_label">Ghi chú <span class="optional">(không yêu cầu)</span></label>
+                [textarea* textarea-mess class:form_textarea]
+            </div>
+        </div>
+
         <div class="col-md-6">
             <div class="form_group_box">
                 <label for="email" class="form_label">Email <span class="req">*</span></label>
@@ -81,11 +88,11 @@ get_header();
 </div>
 <script>
     jQuery(document).ready(function($) {
-        $('.form_control').on('focus', function() {
+        $('.form_control, .form_textarea').on('focus', function() {
             $(this).closest('.form_group_box').find('.form_label').hide();
         });
 
-        $('.form_control').on('blur', function() {
+        $('.form_control, .form_textarea').on('blur', function() {
             if ($(this).val().trim() === '') {
                 $(this).closest('.form_group_box').find('.form_label').show();
             }
