@@ -44,6 +44,7 @@
 		slidesToShow: 1,
 		slidesToScroll: 1,
 	});
+
 	$(".home_banner_slider").slick({
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -52,6 +53,18 @@
 		infinite: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
+	});
+
+	$(".best_selling_slider").slick({
+		autoplay: true,
+		autoplaySpeed: 5000,
+		dots: false,
+		arrows: false,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		centerMode: true,
+		centerPadding: "25%",
 	});
 
 	// ... longpv

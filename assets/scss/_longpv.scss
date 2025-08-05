@@ -84,3 +84,25 @@
     border-radius: 8px;
     text-decoration: none !important;
 }
+
+.home_best_selling {
+    .heading {
+        margin: 0px;
+        background: #F4F5F7;
+        background: linear-gradient(270deg, rgba(244, 245, 247, 1) 0%, rgba(226, 231, 245, 1) 100%);
+
+        .title {
+            padding: 32px 0px;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0px;
+        }
+    }
+
+    .best_selling_slider {
+
+        .best_selling_item {
+            padding: 50px 0px 85px 0px;
+        }
+    }
+}
