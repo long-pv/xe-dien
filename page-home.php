@@ -195,7 +195,45 @@ if ($banner):
 <div class="home_endow">
 	<div class="container">
 		<div class="row">
+			<?php for ($i = 0; $i < 4; $i++): ?>
+				<div class="col-lg-3">
+					<div class="item">
+						<div class="icon">
+							<img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_1.png'; ?>" alt="">
+						</div>
+						<div class="content">
+							<h3 class="title">
+								Free Ship
+							</h3>
+							<div class="desc">
+								Free ship toàn Hà Nội trong vòng 3-5 ngày Free ship toàn Hà Nội trong vòng 3-5 ngày
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php endfor; ?>
+		</div>
+	</div>
+</div>
 
+<div class="home_more_info">
+	<div class="container">
+		<div class="row">
+			<?php for ($i = 0; $i < 2; $i++): ?>
+				<div class="col-lg-6">
+					<div class="item">
+						<img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_60.png'; ?>" alt="">
+						<div class="content">
+							<h3 class="title">
+								Showroom & Trạm sạc
+							</h3>
+							<a href="#" class="link">
+								Tìm hiểu thêm
+							</a>
+						</div>
+					</div>
+				</div>
+			<?php endfor; ?>
 		</div>
 	</div>
 </div>
