@@ -1,0 +1,86 @@
+.sign_up_consultation {
+    background-color: $primary;
+    padding: 14px 0px;
+
+    .inner {
+        position: relative;
+
+        .text {
+            font-size: 10px;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+        }
+
+        .icon {
+            display: inline-flex;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    }
+}
+
+.header_right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .global,
+    .cart_icon {
+        display: inline-flex;
+        flex-shrink: 0;
+        cursor: pointer;
+    }
+
+    .my_account {
+        font-size: 14px;
+        font-weight: 500;
+        padding-left: 32px;
+        color: #0A0A0A;
+        cursor: pointer;
+    }
+}
+
+.home_banner {
+    .item {
+        min-height: 70vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .content {
+            padding-bottom: 127px;
+
+            .title {
+                font-size: 72px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 8px;
+                line-height: 1.1 !important;
+            }
+
+            .desc {
+                font-size: 24px;
+                color: rgba(#fff, 0.8);
+                margin-bottom: 32px;
+            }
+        }
+    }
+}
+
+.btn_1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    padding: 8px 50px;
+    background-color: rgba(#fff, 0.16);
+    border: 1px solid #fff;
+    border-radius: 8px;
+    text-decoration: none !important;
+}

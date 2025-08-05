@@ -193,3 +193,51 @@ if (class_exists('WooCommerce')) {
     }
     add_action('after_setup_theme', 'xe_dien_woocommerce_setup');
 }
+
+// The function "write_log" is used to write debug logs to a file in PHP.
+function write_log($log = null, $title = 'Debug')
+{
+    if ($log) {
+        if (is_array($log) || is_object($log)) {
+            $log = print_r($log, true);
+        }
+
+        $timestamp = date('Y-m-d H:i:s');
+        $text = '[' . $timestamp . '] : ' . $title . ' - Log: ' . $log . "\n";
+        $log_file = WP_CONTENT_DIR . '/debug.log';
+        $file_handle = fopen($log_file, 'a');
+        fwrite($file_handle, $text);
+        fclose($file_handle);
+    }
+}
+
+// Tạo menu theme settings chung
+// Setup theme setting page
+if (function_exists('acf_add_options_page')) {
+    // Trang cài đặt chính
+    acf_add_options_page(array(
+        'page_title' => 'Theme Settings',
+        'menu_title' => 'Theme Settings',
+        'menu_slug'  => 'theme-settings',
+        'capability' => 'edit_posts',
+        'redirect'   => false,
+        'position'   => 80
+    ));
+}
+// end
+
+// stop upgrading ACF pro plugin
+add_filter('site_transient_update_plugins', 'disable_plugins_update');
+function disable_plugins_update($value)
+{
+    // disable acf pro
+    if (isset($value->response['advanced-custom-fields-pro/acf.php'])) {
+        unset($value->response['advanced-custom-fields-pro/acf.php']);
+    }
+    return $value;
+}
+
+// tối đa revision
+add_filter('wp_revisions_to_keep', function ($num, $post) {
+    return 3;
+}, 10, 2);

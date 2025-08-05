@@ -11,7 +11,12 @@
  */
 
 ?>
+</main>
+<!-- end main body -->
 
+<footer class="footer">
+
+</footer>
 
 <?php wp_footer(); ?>
 

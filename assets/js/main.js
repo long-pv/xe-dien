@@ -30,12 +30,21 @@
 			$(".header").css("margin-top", $("#wpadminbar").outerHeight(true));
 		}
 	}
-	adjustPadding();
-	$(window).resize(adjustPadding);
+	// adjustPadding();
+	// $(window).resize(adjustPadding);
 	// end
 
 	// ===== banner =====
 	$(".banner--slider").slick({
+		autoplay: true,
+		autoplaySpeed: 5000,
+		dots: false,
+		arrows: false,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+	});
+	$(".home_banner_slider").slick({
 		autoplay: true,
 		autoplaySpeed: 5000,
 		dots: false,
