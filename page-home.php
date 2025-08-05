@@ -69,52 +69,134 @@ if ($banner):
 		<?php for ($i = 0; $i < 3; $i++) : ?>
 			<div>
 				<div class="best_selling_item">
-					<h3 class="title">
-						FELIX NEO
-					</h3>
-					<div class="desc">
-						Lướt êm, Phong cách
-					</div>
+					<div class="content">
+						<h3 class="title">
+							FELIX NEO
+						</h3>
+						<div class="desc">
+							Lướt êm, Phong cách
+						</div>
 
-					<div class="feature">
-						<div class="row">
-							<div class="col-lg-3">
-								<div class="value">
-									60 km/h
+						<div class="feature">
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="value">
+										60 km/h
+									</div>
+									<div class="title">
+										TỐC ĐỘ TỐI ĐA
+									</div>
 								</div>
-								<div class="title">
-									TỐC ĐỘ TỐI ĐA
+								<div class="col-lg-3">
+									<div class="value">
+										114 km/1 lần sạc
+									</div>
+									<div class="title">
+										QUÃNG ĐƯỜNG DI CHUYỂN
+									</div>
 								</div>
-							</div>
-							<div class="col-lg-3">
-								<div class="value">
-									114 km/1 lần sạc
+								<div class="col-lg-3">
+									<div class="value">
+										21 lít
+									</div>
+									<div class="title">
+										ĐỘ RỘNG CỐP XE
+									</div>
 								</div>
-								<div class="title">
-									QUÃNG ĐƯỜNG DI CHUYỂN
-								</div>
-							</div>
-							<div class="col-lg-3">
-								<div class="value">
-									21 lít
-								</div>
-								<div class="title">
-									ĐỘ RỘNG CỐP XE
-								</div>
-							</div>
-							<div class="col-lg-3">
-								<div class="value">
-									28.800.000 VNĐ
-								</div>
-								<div class="title">
-									GIÁ TỐI THIỂU TỪ
+								<div class="col-lg-3">
+									<div class="value">
+										28.800.000 VNĐ
+									</div>
+									<div class="title">
+										GIÁ TỐI THIỂU TỪ
+									</div>
 								</div>
 							</div>
 						</div>
+
+						<div class="list_btn">
+							<a href="#" class="btn_2">
+								XEM CHI TIẾT
+							</a>
+							<a href="#" class="btn_3">
+								ĐẶT CỌC
+							</a>
+						</div>
+					</div>
+
+					<div class="img_wrap">
+						<img src="<?php echo get_template_directory_uri() . '/assets/images/image_25.png'; ?>" alt="">
 					</div>
 				</div>
 			</div>
 		<?php endfor; ?>
+	</div>
+</div>
+
+
+<div class="home_about_us">
+	<div class="container">
+		<div class="row">
+			<?php for ($i = 0; $i < 2; $i++) : ?>
+				<div class="col-lg-6">
+					<div class="item_box">
+						<div class="row align-items-center">
+							<div class="col-7">
+								<div class="content">
+									<h3 class="title">
+										Xe máy điện VinFast
+									</h3>
+
+									<div class="desc">
+										Thiết kế đẹp, chạy êm, tiết kiệm, không xăng – không khí thải.
+									</div>
+
+									<a class="btn_4">
+										Xem các mẫu
+									</a>
+								</div>
+							</div>
+
+							<div class="col-5">
+								<img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_48.png'; ?>" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php endfor; ?>
+		</div>
+	</div>
+</div>
+
+<div class="home_box_cta">
+	<div class="container">
+		<div class="inner" style="background-image: url('<?php echo get_template_directory_uri() . '/assets/images/Frame_55.png'; ?>');">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="content">
+						<h2 class="title">
+							VinFast Đức Nghĩa
+						</h2>
+
+						<div class="desc">
+							VinFast Đức Nghĩa là đại lý ủy quyền chính thức, cung cấp đầy đủ các dòng xe điện - xe máy điện, đáp ứng mọi nhu cầu mua mới và trải nghiệm lái thử.
+						</div>
+
+						<a href="#" class="btn_5">
+							Xem chi tiết dịch vụ
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="home_endow">
+	<div class="container">
+		<div class="row">
+
+		</div>
 	</div>
 </div>
 

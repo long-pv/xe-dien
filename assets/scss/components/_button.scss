@@ -1,27 +1,63 @@
-.btnLink {
-    &__wrap {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        row-gap: 8px;
-        column-gap: 16px;
-    }
-
-    padding: 12px 30px;
+.btn_1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    padding: 8px 50px;
+    background-color: rgba(#fff, 0.16);
+    border: 1px solid #fff;
     border-radius: 8px;
-    background-color: $primary;
-    color: #fff !important;
-    outline: none !important;
-    border: 1px solid $primary;
+    text-decoration: none !important;
+    display: inline-flex;
+}
+
+.btn_2 {
     font-size: 16px;
     font-weight: 600;
+    color: #111111 !important;
+    padding: 12px 24px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    text-decoration: none !important;
     text-transform: uppercase;
     display: inline-flex;
-    text-decoration: none !important;
-    transition: all 0.3s;
+}
 
-    &:hover {
-        background-color: #fff;
-        color: $primary !important;
-    }
+.btn_3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    padding: 12px 24px;
+    background-color: #3E6AE1;
+    border-radius: 8px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    display: inline-flex;
+}
+
+.btn_4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000 !important;
+    padding: 12px 24px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(#000000, 0.08);
+    border-radius: 8px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+
+.btn_5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000 !important;
+    padding: 12px 24px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(#000000, 0.08);
+    border-radius: 8px;
+    text-decoration: none !important;
+    display: inline-flex;
+    justify-content: center;
+    min-width: 315px;
 }

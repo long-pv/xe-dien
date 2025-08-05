@@ -1,7 +1,7 @@
 .slick {
     &-slider {
         @include media-breakpoint-up(lg) {
-            margin: 0px -15px;
+            margin: 0px -12px;
         }
     }
 
@@ -9,7 +9,7 @@
         user-select: text;
 
         @include media-breakpoint-up(lg) {
-            padding: 0px 15px;
+            padding: 0px 12px;
         }
     }
 
@@ -18,8 +18,8 @@
     }
 
     // style dots
-    $w_dots: 15px;
-    $h_dots: 3px;
+    $w_dots: 16px;
+    $h_dots: 16px;
 
     &-dots {
         li {
@@ -28,14 +28,12 @@
             align-items: flex-end;
 
             button {
-                background-color: #fff;
+                background-color: rgba(#000000, 0.12);
                 width: 100%;
                 height: $h_dots;
                 padding: 0px;
                 margin: 0px;
-                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-                -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-                -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+                border-radius: 50%;
 
                 &::before {
                     display: none;
@@ -45,7 +43,6 @@
             &.slick-active {
                 button {
                     background-color: $primary;
-                    height: 6px;
                 }
             }
         }
