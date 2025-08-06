@@ -24,82 +24,71 @@
         </div>
         <div class="footer_menu">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="item">
-                        <div class="title">
-                            Sản phẩm
-                        </div>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#">Xe bán chạy</a>
-                                </li>
-                                <li>
-                                    <a href="#">Xe thời thượng</a>
-                                </li>
-                                <li>
-                                    <a href="#">Mua xe</a>
-                                </li>
-                            </ul>
+                <?php
+                $column_1_title = get_field('column_1_title', 'option') ?? "";
+                $column_1_content = get_field('column_1_content', 'option') ?? "";
+                if ($column_1_title && $column_1_content):
+                ?>
+                    <div class="col-lg-3">
+                        <div class="item">
+                            <div class="title">
+                                <?php echo $column_1_title; ?>
+                            </div>
+                            <div class="content">
+                                <?php echo $column_1_content; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="item">
-                        <div class="title">
-                            Dịch vụ
-                        </div>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#">Thay pin</a>
-                                </li>
-                                <li>
-                                    <a href="#">Phụ tùng & Phụ kiện chính hãng</a>
-                                </li>
-                                <li>
-                                    <a href="#">Bảo trì</a>
-                                </li>
-                            </ul>
+                <?php endif; ?>
+                <?php
+                $column_2_title = get_field('column_2_title', 'option') ?? "";
+                $column_2_content = get_field('column_2_content', 'option') ?? "";
+                if ($column_2_title && $column_2_content):
+                ?>
+                    <div class="col-lg-3">
+                        <div class="item">
+                            <div class="title">
+                                <?php echo $column_2_title; ?>
+                            </div>
+                            <div class="content">
+                                <?php echo $column_2_content; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="item">
-                        <div class="title">
-                            Giới thiệu
-                        </div>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    <a href="#">VinFast Đức Nghĩa</a>
-                                </li>
-                                <li>
-                                    <a href="#">Giới thiệu VinFast</a>
-                                </li>
-                                <li>
-                                    <a href="#">Tuyển dụng</a>
-                                </li>
-                            </ul>
+                <?php endif; ?>
+                <?php
+                $column_3_title = get_field('column_3_title', 'option') ?? "";
+                $column_3_content = get_field('column_3_content', 'option') ?? "";
+                if ($column_3_title && $column_3_content):
+                ?>
+                    <div class="col-lg-3">
+                        <div class="item">
+                            <div class="title">
+                                <?php echo $column_3_title; ?>
+                            </div>
+                            <div class="content">
+                                <?php echo $column_3_content; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
+
+
                 <div class="col-lg-3">
-                    <div class="item">
-                        <div class="title">
-                            Liên hệ
+                    <?php
+                    $column_4_title = get_field('column_4_title', 'option') ?? "";
+                    $column_4_content = get_field('column_4_content', 'option') ?? "";
+                    if ($column_4_title && $column_4_content):
+                    ?>
+                        <div class="item">
+                            <div class="title">
+                                <?php echo $column_4_title; ?>
+                            </div>
+                            <div class="content">
+                                <?php echo $column_4_content; ?>
+                            </div>
                         </div>
-                        <div class="content">
-                            <ul>
-                                <li>
-                                    Email: vinfastducnghia@gmail.com
-                                </li>
-                                <li>
-                                    Hotline: 0968718446
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php endif; ?>
 
                     <div class="social">
                         <a href="#" class="icon">
@@ -127,18 +116,23 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="content">
-                        <h2>Công ty TNHH Kinh doanh Thương mại và Dịch vụ VinFast</h2>
-                        <p>
-                            <b>MST/MSDN:</b> 0108926276 do Sở KHĐT TP Hà Nội cấp lần đầu ngày 01/10/2019 và các lần thay đổi tiếp theo.
-                        </p>
-                        <p>
-                            <b>Địa chỉ trụ sở chính:</b> Số 576, đường Lạc Long Quân, phường Phú Thượng, Quận Tây Hồ, Thành phố Hà Nội, Việt Nam
-                        </p>
-                    </div>
-                    <div class="copyright">
-                        © Copyright 2025. All rights Reserved
-                    </div>
+                    <?php
+                    $address = get_field('address', 'option') ?? '';
+                    $copyright = get_field('copyright', 'option') ?? '';
+                    if ($address):
+                    ?>
+                        <div class="content">
+                            <?php echo $address; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php
+                    if ($copyright):
+                    ?>
+                        <div class="copyright">
+                            <?php echo $copyright; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="col-lg-6">
                     <div class="d-flex justify-content-end">
