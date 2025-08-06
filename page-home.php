@@ -56,117 +56,159 @@ if ($banner):
 	</div>
 <?php endif; ?>
 
-<div class="home_best_selling">
-	<div class="heading">
-		<div class="container">
-			<h2 class="title">
-				SẢN PHẨM BÁN CHẠY
-			</h2>
-		</div>
-	</div>
-
-	<div class="best_selling_slider">
-		<?php for ($i = 0; $i < 3; $i++) : ?>
-			<div>
-				<div class="best_selling_item">
-					<div class="content">
-						<h3 class="title">
-							FELIX NEO
-						</h3>
-						<div class="desc">
-							Lướt êm, Phong cách
-						</div>
-
-						<div class="feature">
-							<div class="row">
-								<div class="col-lg-3">
-									<div class="value">
-										60 km/h
-									</div>
-									<div class="title">
-										TỐC ĐỘ TỐI ĐA
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="value">
-										114 km/1 lần sạc
-									</div>
-									<div class="title">
-										QUÃNG ĐƯỜNG DI CHUYỂN
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="value">
-										21 lít
-									</div>
-									<div class="title">
-										ĐỘ RỘNG CỐP XE
-									</div>
-								</div>
-								<div class="col-lg-3">
-									<div class="value">
-										28.800.000 VNĐ
-									</div>
-									<div class="title">
-										GIÁ TỐI THIỂU TỪ
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="list_btn">
-							<a href="#" class="btn_2">
-								XEM CHI TIẾT
-							</a>
-							<a href="#" class="btn_3">
-								ĐẶT CỌC
-							</a>
-						</div>
-					</div>
-
-					<div class="img_wrap">
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/image_25.png'; ?>" alt="">
-					</div>
-				</div>
+<?php
+$best_selling_products = get_field('best_selling_products') ?? [];
+if ($best_selling_products):
+?>
+	<div class="home_best_selling">
+		<div class="heading">
+			<div class="container">
+				<h2 class="title">
+					SẢN PHẨM BÁN CHẠY
+				</h2>
 			</div>
-		<?php endfor; ?>
-	</div>
-</div>
+		</div>
 
+		<div class="best_selling_slider">
+			<?php
+			foreach ($best_selling_products as $product_id) :
+				// Lấy đối tượng sản phẩm WooCommerce
+				$product = wc_get_product($product_id);
 
-<div class="home_about_us">
-	<div class="container">
-		<div class="row">
-			<?php for ($i = 0; $i < 2; $i++) : ?>
-				<div class="col-lg-6">
-					<div class="item_box">
-						<div class="row align-items-center">
-							<div class="col-7">
-								<div class="content">
-									<h3 class="title">
-										Xe máy điện VinFast
-									</h3>
+				if (!$product) continue;
 
-									<div class="desc">
-										Thiết kế đẹp, chạy êm, tiết kiệm, không xăng – không khí thải.
+				// Lấy thông tin cơ bản
+				$product_name = $product->get_name();
+				$product_image_url = wp_get_attachment_url($product->get_image_id());
+				$product_url = get_permalink($product_id);
+				$add_to_cart_url = esc_url(add_query_arg('add-to-cart', $product_id, wc_get_cart_url()));
+
+				// Lấy ACF fields
+				$introduce = get_field('introduce', $product_id) ?? '';
+				$maximum_speed = get_field('maximum_speed', $product_id) ?? '';
+				$distance_traveled = get_field('distance_traveled', $product_id) ?? '';
+				$trunk_width = get_field('trunk_width', $product_id) ?? '';
+				$minimum_price_from = get_field('minimum_price_from', $product_id) ?? '';
+			?>
+				<div>
+					<div class="best_selling_item">
+						<div class="content">
+							<h3 class="title">
+								<?php echo $product_name; ?>
+							</h3>
+							<div class="desc">
+								<?php echo $introduce; ?>
+							</div>
+
+							<div class="feature">
+								<div class="row">
+									<div class="col-lg-3">
+										<div class="value">
+											<?php echo $maximum_speed ?? 'N/A'; ?>
+										</div>
+										<div class="title">
+											TỐC ĐỘ TỐI ĐA
+										</div>
 									</div>
-
-									<a class="btn_4">
-										Xem các mẫu
-									</a>
+									<div class="col-lg-3">
+										<div class="value">
+											<?php echo $distance_traveled ?? 'N/A'; ?>
+										</div>
+										<div class="title">
+											QUÃNG ĐƯỜNG DI CHUYỂN
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="value">
+											<?php echo $trunk_width ?? 'N/A'; ?>
+										</div>
+										<div class="title">
+											ĐỘ RỘNG CỐP XE
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div class="value">
+											<?php echo $minimum_price_from ?? 'N/A'; ?>
+										</div>
+										<div class="title">
+											GIÁ TỐI THIỂU TỪ
+										</div>
+									</div>
 								</div>
 							</div>
 
-							<div class="col-5">
-								<img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_48.png'; ?>" alt="">
+							<div class="list_btn">
+								<a href="<?php echo $product_url; ?>" class="btn_2">
+									XEM CHI TIẾT
+								</a>
+								<a href="<?php echo $add_to_cart_url; ?>" class="btn_3">
+									ĐẶT CỌC
+								</a>
 							</div>
+						</div>
+
+						<div class="img_wrap">
+							<img src="<?php echo $product_image_url; ?>" alt="<?php echo $product_name; ?>">
 						</div>
 					</div>
 				</div>
-			<?php endfor; ?>
+			<?php
+			endforeach;
+			?>
 		</div>
 	</div>
-</div>
+<?php
+endif;
+?>
+
+
+<?php
+$about_us = get_field('about_us') ?? '';
+if (!empty($about_us) && is_array($about_us)) :
+?>
+	<div class="home_about_us">
+		<div class="container">
+			<div class="row">
+				<?php foreach ($about_us as $item) :
+					$title = $item['title'] ?? '';
+					$describe = $item['describe'] ?? '';
+					$button = $item['button'] ?? null;
+					$image = $item['image'] ?? '';
+				?>
+					<div class="col-lg-6">
+						<div class="item_box">
+							<div class="row align-items-center h-100">
+								<div class="col-7">
+									<div class="content">
+										<?php if ($title) : ?>
+											<h3 class="title"><?php echo $title; ?></h3>
+										<?php endif; ?>
+
+										<?php if ($describe) : ?>
+											<div class="desc"><?php echo $describe; ?></div>
+										<?php endif; ?>
+
+										<?php if ($button && isset($button['url'])) : ?>
+											<a class="btn_4" href="<?php echo $button['url']; ?>" <?php if (!empty($button['target'])) echo 'target="' . $button['target'] . '"'; ?>>
+												<?php echo $button['title']; ?>
+											</a>
+										<?php endif; ?>
+									</div>
+								</div>
+
+								<div class="col-5">
+									<?php if ($image) : ?>
+										<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
 
 <div class="home_box_cta">
 	<div class="container">
