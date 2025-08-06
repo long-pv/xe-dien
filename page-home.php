@@ -266,5 +266,34 @@ if ($banner):
 	</div>
 </div>
 
+<script>
+	jQuery(document).ready(function($) {
+		$('.form_control, .form_textarea').on('focus', function() {
+			$(this).closest('.form_group_box').find('.form_label').hide();
+		});
+
+		$('.form_control, .form_textarea').on('blur', function() {
+			if ($(this).val().trim() === '') {
+				$(this).closest('.form_group_box').find('.form_label').show();
+			}
+		});
+
+		// Xử lý click tab như cũ
+		$('.tab_title').click(function() {
+			var tabId = $(this).data('tab');
+			$('.tab_title').removeClass('active');
+			$(this).addClass('active');
+			$('.tab_content').removeClass('active');
+			$('#' + tabId).addClass('active');
+		});
+
+		// Khi chọn radio, fill vào input ẩn
+		$('input[name="product"]').change(function() {
+			var selectedValue = $(this).val();
+			$('input[name="selected_product"]').val(selectedValue);
+		});
+	});
+</script>
+
 <?php
 get_footer();
