@@ -238,5 +238,33 @@ if ($banner):
 	</div>
 </div>
 
+<div class="home_form_contact">
+	<div class="row gx-0">
+		<div class="col-lg-6">
+			<div class="img_wrap">
+				<img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="">
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="inner">
+				<div class="content">
+					<div class="logo">
+						<?php $logo_url = get_template_directory_uri() . '/assets/images/logo.svg'; ?>
+						<img src="<?php echo $logo_url; ?>" alt="logo">
+					</div>
+					<h2 class="title">
+						ĐĂNG KÝ NHẬN ƯU ĐÃI
+					</h2>
+					<div class="desc">
+						Quý khách vui lòng điền thông tin để nhận các ưu đãi mới nhất từ VinFast Đức Nghĩa
+					</div>
+
+					<?php echo do_shortcode('[contact-form-7 id="09113cc" title="Contact form 1"]'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <?php
 get_footer();

@@ -48,7 +48,7 @@
 	$(".home_banner_slider").slick({
 		autoplay: true,
 		autoplaySpeed: 5000,
-		dots: false,
+		dots: true,
 		arrows: false,
 		infinite: true,
 		slidesToShow: 1,
