@@ -210,103 +210,161 @@ if (!empty($about_us) && is_array($about_us)) :
 	</div>
 <?php endif; ?>
 
-<div class="home_box_cta">
-	<div class="container">
-		<div class="inner" style="background-image: url('<?php echo get_template_directory_uri() . '/assets/images/Frame_55.png'; ?>');">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="content">
-						<h2 class="title">
-							VinFast Đức Nghĩa
-						</h2>
+<?php
+$cta = get_field('cta');
+if (!empty($cta) && is_array($cta)) :
+	$title = $cta['title'] ?? '';
+	$describe = $cta['describe'] ?? '';
+	$button = $cta['button'] ?? null;
+	$background = $cta['background'] ?? '';
+?>
+	<div class="home_box_cta">
+		<div class="container">
+			<div class="inner" <?php if ($background) echo 'style="background-image: url(' . $background . ');"'; ?>>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="content">
+							<?php if ($title) : ?>
+								<h2 class="title"><?php echo $title; ?></h2>
+							<?php endif; ?>
 
-						<div class="desc">
-							VinFast Đức Nghĩa là đại lý ủy quyền chính thức, cung cấp đầy đủ các dòng xe điện - xe máy điện, đáp ứng mọi nhu cầu mua mới và trải nghiệm lái thử.
+							<?php if ($describe) : ?>
+								<div class="desc"><?php echo $describe; ?></div>
+							<?php endif; ?>
+
+							<?php if ($button && isset($button['url'])) : ?>
+								<a href="<?php echo $button['url']; ?>" class="btn_5" <?php if (!empty($button['target'])) echo 'target="' . $button['target'] . '"'; ?>>
+									<?php echo $button['title']; ?>
+								</a>
+							<?php endif; ?>
 						</div>
-
-						<a href="#" class="btn_5">
-							Xem chi tiết dịch vụ
-						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<?php endif; ?>
 
-<div class="home_endow">
-	<div class="container">
-		<div class="row">
-			<?php for ($i = 0; $i < 4; $i++): ?>
-				<div class="col-lg-3">
-					<div class="item">
-						<div class="icon">
-							<img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_1.png'; ?>" alt="">
-						</div>
-						<div class="content">
-							<h3 class="title">
-								Free Ship
-							</h3>
-							<div class="desc">
-								Free ship toàn Hà Nội trong vòng 3-5 ngày Free ship toàn Hà Nội trong vòng 3-5 ngày
+<?php
+$endow = get_field('endow');
+if (!empty($endow) && is_array($endow)) :
+?>
+	<div class="home_endow">
+		<div class="container">
+			<div class="row">
+				<?php foreach ($endow as $item) :
+					$title = $item['title'] ?? '';
+					$describe = $item['describe'] ?? '';
+					$icon = $item['icon'] ?? '';
+				?>
+					<div class="col-lg-3">
+						<div class="item">
+							<?php if ($icon) : ?>
+								<div class="icon">
+									<img src="<?php echo $icon; ?>" alt="">
+								</div>
+							<?php endif; ?>
+
+							<div class="content">
+								<?php if ($title) : ?>
+									<h3 class="title"><?php echo $title; ?></h3>
+								<?php endif; ?>
+
+								<?php if ($describe) : ?>
+									<div class="desc"><?php echo $describe; ?></div>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>
-				</div>
-			<?php endfor; ?>
+				<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
-</div>
+<?php endif; ?>
 
-<div class="home_more_info">
-	<div class="container">
-		<div class="row">
-			<?php for ($i = 0; $i < 2; $i++): ?>
-				<div class="col-lg-6">
-					<div class="item">
-						<img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_60.png'; ?>" alt="">
-						<div class="content">
-							<h3 class="title">
-								Showroom & Trạm sạc
-							</h3>
-							<a href="#" class="link">
-								Tìm hiểu thêm
-							</a>
+
+<?php
+$more_info = get_field('more_info');
+if (!empty($more_info) && is_array($more_info)) :
+?>
+	<div class="home_more_info">
+		<div class="container">
+			<div class="row">
+				<?php foreach ($more_info as $item) :
+					$title = $item['title'] ?? '';
+					$url = $item['url'] ?? '';
+					$image = $item['image'] ?? '';
+				?>
+					<div class="col-lg-6">
+						<div class="item">
+							<?php if ($image) : ?>
+								<img src="<?php echo $image; ?>" alt="">
+							<?php endif; ?>
+
+							<div class="content">
+								<?php if ($title) : ?>
+									<h3 class="title"><?php echo $title; ?></h3>
+								<?php endif; ?>
+
+								<?php if ($url) : ?>
+									<a href="<?php echo $url; ?>" class="link">Tìm hiểu thêm</a>
+								<?php endif; ?>
+							</div>
 						</div>
 					</div>
-				</div>
-			<?php endfor; ?>
-		</div>
-	</div>
-</div>
-
-<div class="home_form_contact">
-	<div class="row gx-0">
-		<div class="col-lg-6">
-			<div class="img_wrap">
-				<img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="">
-			</div>
-		</div>
-		<div class="col-lg-6">
-			<div class="inner">
-				<div class="content">
-					<div class="logo">
-						<?php $logo_url = get_template_directory_uri() . '/assets/images/logo.svg'; ?>
-						<img src="<?php echo $logo_url; ?>" alt="logo">
-					</div>
-					<h2 class="title">
-						ĐĂNG KÝ NHẬN ƯU ĐÃI
-					</h2>
-					<div class="desc">
-						Quý khách vui lòng điền thông tin để nhận các ưu đãi mới nhất từ VinFast Đức Nghĩa
-					</div>
-
-					<?php echo do_shortcode('[contact-form-7 id="09113cc" title="Contact form 1"]'); ?>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>
-</div>
+<?php endif; ?>
+
+
+<?php
+$contact_form = get_field('contact_form');
+if (!empty($contact_form) && is_array($contact_form)) :
+	$title = $contact_form['title'] ?? '';
+	$description = $contact_form['description'] ?? '';
+	$form_id = $contact_form['form'] ?? '';
+	$image = $contact_form['image'] ?? '';
+?>
+	<div class="home_form_contact">
+		<div class="row gx-0">
+			<div class="col-lg-6">
+				<div class="img_wrap">
+					<?php if ($image) : ?>
+						<img src="<?php echo $image; ?>" alt="Contact form">
+					<?php endif; ?>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="inner">
+					<div class="content">
+						<div class="logo">
+							<?php $logo_url = get_template_directory_uri() . '/assets/images/logo.svg'; ?>
+							<img src="<?php echo $logo_url; ?>" alt="logo">
+						</div>
+
+						<?php if ($title) : ?>
+							<h2 class="title"><?php echo $title; ?></h2>
+						<?php endif; ?>
+
+						<?php if ($description) : ?>
+							<div class="desc"><?php echo $description; ?></div>
+						<?php endif; ?>
+
+						<?php
+						if ($form_id) {
+							echo do_shortcode('[contact-form-7 id="' . $form_id . '"]');
+						}
+						?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
+
 
 <?php
 /*
