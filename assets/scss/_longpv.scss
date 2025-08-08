@@ -390,3 +390,118 @@
         display: none;
     }
 }
+
+.btn_2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111111 !important;
+    padding: 12px 24px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    display: inline-flex;
+}
+
+.btn_3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    padding: 12px 24px;
+    background-color: #3E6AE1;
+    border-radius: 8px;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    display: inline-flex;
+}
+
+.home_best_selling {
+    overflow-x: hidden;
+
+    .heading {
+        margin: 0px;
+        background: #F4F5F7;
+        background: linear-gradient(270deg, rgba(244, 245, 247, 1) 0%, rgba(226, 231, 245, 1) 100%);
+
+        .title {
+            padding: 32px 0px;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0px;
+        }
+    }
+
+    .best_selling_slider {
+        background: #F4F5F7;
+        background: linear-gradient(172deg, rgba(244, 245, 247, 1) 30%, rgba(155, 176, 233, 1) 100%);
+
+        .slick-current.slick-active {
+            .content {
+                opacity: 1;
+            }
+        }
+
+        &.slick-dotted.slick-slider {
+            margin-bottom: 50px;
+
+            .slick-dots {
+                bottom: -50px;
+            }
+        }
+
+        .best_selling_item {
+            padding: 50px 0px 85px 0px;
+            text-align: center;
+
+            .content {
+                opacity: 0;
+            }
+
+            .title {
+                font-size: 44px;
+                font-weight: 700;
+                margin-bottom: 0px;
+            }
+
+            .desc {
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 24px;
+            }
+
+            .feature {
+                margin-bottom: 32px;
+
+                .row {
+                    --bs-gutter-x: 24px;
+                }
+
+                .value {
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-bottom: 0px;
+                }
+
+                .title {
+                    font-size: 12px;
+                    font-weight: 600;
+                    margin-bottom: 0px;
+                }
+            }
+
+            .list_btn {
+                display: flex;
+                justify-content: center;
+                gap: 16px;
+                margin-bottom: 56px;
+            }
+
+            .img_wrap {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

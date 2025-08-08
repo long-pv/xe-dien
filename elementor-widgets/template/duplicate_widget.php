@@ -21,7 +21,7 @@ class Duplicate_Widget extends \Elementor\Widget_Base
 
     public function get_categories()
     {
-        return ['general'];
+        return ['custom_builder_theme'];
     }
 
     protected function _register_controls()
@@ -45,6 +45,6 @@ class Duplicate_Widget extends \Elementor\Widget_Base
             <button class="custom_button">Click me</button>
             <div class="notification_desc d-none">Show content</div>
         </div>
-    <?php
+<?php
     }
 }
