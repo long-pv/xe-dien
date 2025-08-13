@@ -1,23 +1,24 @@
 {
-  "name": "xe-dien",
-  "version": "1.0.0",
-  "description": "",
-  "main": "bs.js",
-  "devDependencies": {
-    "browser-sync": "^3.0.4"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/long-pv/xe-dien.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/long-pv/xe-dien/issues"
-  },
-  "homepage": "https://github.com/long-pv/xe-dien#readme"
+	"name": "xe-dien",
+	"version": "1.0.0",
+	"description": "",
+	"main": "bs.js",
+	"devDependencies": {
+		"browser-sync": "^3.0.4",
+		"sass": "^1.69.5"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/long-pv/xe-dien.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/long-pv/xe-dien/issues"
+	},
+	"homepage": "https://github.com/long-pv/xe-dien#readme"
 }
