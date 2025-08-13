@@ -17,7 +17,9 @@ get_header();
 ?>
 
 <div class="container">
-	<?php the_content(); ?>
+	<div class="py-pc">
+		<?php the_content(); ?>
+	</div>
 </div>
 
 <?php

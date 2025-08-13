@@ -106,6 +106,19 @@ if (class_exists('WooCommerce')) {
         add_theme_support('wc-product-gallery-slider');
     }
     add_action('after_setup_theme', 'xe_dien_woocommerce_setup');
+
+    // thêm class để tùy chỉnh css
+    add_filter('body_class', function ($classes) {
+        if (function_exists('is_woocommerce') && (
+            is_woocommerce() ||
+            is_cart() ||
+            is_checkout() ||
+            is_account_page()
+        )) {
+            $classes[] = 'xemer_woo_theme';
+        }
+        return $classes;
+    });
 }
 
 // The function "write_log" is used to write debug logs to a file in PHP.

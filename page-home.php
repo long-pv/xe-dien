@@ -308,6 +308,30 @@ if (!empty($endow) && is_array($endow)) :
 				</div>
 			</div>
 		</div>
+
+		<div class="list_post">
+			<div class="row">
+				<?php for ($i = 0; $i < 3; $i++): ?>
+					<div class="col-lg-4">
+						<div class="post_item">
+							<a href="#" class="img_wrap">
+								<img src="https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg" alt="">
+							</a>
+							<div class="content">
+								<div class="date">
+									8 Aug 2025
+								</div>
+								<a class="d-flex" href="#">
+									<h3 class="title">
+										Buying Cheap used Transmissions isn't as risky as you think
+									</h3>
+								</a>
+							</div>
+						</div>
+					</div>
+				<?php endfor; ?>
+			</div>
+		</div>
 	</div>
 </div>
 
