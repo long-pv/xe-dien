@@ -67,6 +67,23 @@
 		centerPadding: "25%",
 	});
 
+	$(".tab_product_slider").slick({
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		arrows: false,
+		dots: false,
+		autoplay: true,
+		autoplaySpeed: 3000, // 3 giây
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 1,
+				},
+			},
+		],
+	});
+
 	// ... longpv
 	//
 	//

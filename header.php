@@ -109,6 +109,9 @@
 															<h3 class="title">
 																VinFast Motio - Màu Hồng
 															</h3>
+															<div class="type">
+																Phân loại: Màu hồng
+															</div>
 															<div class="total">
 																1 x <span class="price">12.000.000 VNĐ</span>
 															</div>
@@ -151,20 +154,20 @@
 											</svg>
 										</div>
 										<div class="text">
-											Đơn hàng đã đủ điều kiện Freeship Nội thành Hà Nội!
+											Giao hàng miễn phí trong nội thành Hà Nội
 										</div>
 									</div>
 
 									<div class="bottom">
 										<div class="row">
 											<div class="col-6">
-												<a class="link_1" href="#">
-													Xem Giỏ Hàng
+												<a class="link_2" href="#">
+													Nhận Tư Vấn
 												</a>
 											</div>
 											<div class="col-6">
-												<a class="link_2" href="#">
-													Nhận Tư Vấn
+												<a class="link_1" href="#">
+													Xem Giỏ Hàng
 												</a>
 											</div>
 										</div>
@@ -204,7 +207,7 @@
 					<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
 						type="button" role="tab" aria-controls="home" aria-selected="true">
 						<span>
-							Home
+							CAO CẤP
 						</span>
 					</button>
 				</li>
@@ -212,7 +215,7 @@
 					<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
 						type="button" role="tab" aria-controls="profile" aria-selected="false">
 						<span>
-							Profile
+							TRUNG CẤP
 						</span>
 					</button>
 				</li>
@@ -220,16 +223,52 @@
 					<button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
 						type="button" role="tab" aria-controls="contact" aria-selected="false">
 						<span>
-							Contact
+							PHỔ THÔNG
 						</span>
 					</button>
 				</li>
 			</ul>
 
 			<!-- Tab Content -->
-			<div class="tab-content p-3 border border-top-0" id="myTabContent">
+			<div class="tab-content p-0" id="myTabContent">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-					Nội dung Home
+					<div class="tab_product_slider">
+						<?php for ($i = 0; $i < 6; $i++): ?>
+							<div>
+								<div class="item">
+									<div class="img_wrap">
+										<img src="<?php echo get_template_directory_uri() . '/assets/images/image_25.png'; ?>" alt="img">
+									</div>
+									<div class="content">
+										<div class="row align-items-center">
+											<div class="col-6">
+												<h3 class="title">
+													Felix S
+												</h3>
+											</div>
+											<div class="col-6 text-end">
+												<a href="#" class="link">
+													Chi tiết →
+												</a>
+											</div>
+										</div>
+										<div class="row align-items-center">
+											<div class="col-6">
+												<div class="real_price">
+													29.700.000 VNĐ
+												</div>
+											</div>
+											<div class="col-6 text-end">
+												<div class="old_price">
+													32.000.000 VNĐ
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php endfor; ?>
+					</div>
 				</div>
 				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 					Nội dung Profile

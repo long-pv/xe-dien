@@ -283,6 +283,34 @@ if (!empty($endow) && is_array($endow)) :
 <?php endif; ?>
 
 
+<div class="home_latest_news">
+	<div class="container">
+		<div class="heading">
+			<div class="row align-items-center">
+				<div class="col-lg-8">
+					<h2 class="title">
+						Tin Tức Mới Nhất
+					</h2>
+				</div>
+				<div class="col-lg-4">
+					<div class="d-flex justify-content-end">
+						<a href="#" class="link">
+							<span class="text">
+								Xem thêm
+							</span>
+							<span class="icon">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" fill="#3E6AE1" />
+								</svg>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <?php
 $more_info = get_field('more_info');
 if (!empty($more_info) && is_array($more_info)) :

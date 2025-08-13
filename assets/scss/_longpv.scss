@@ -170,6 +170,13 @@
                         .title {
                             color: #0A0A0A;
                             font-size: 18px;
+                            font-weight: 700;
+                            margin-bottom: 4px;
+                        }
+
+                        .type {
+                            color: #0A0A0A;
+                            font-size: 14px;
                             font-weight: 600;
                             margin-bottom: 4px;
                         }
@@ -179,9 +186,9 @@
                             font-size: 14px;
                             font-weight: 600;
 
-                            .price {
-                                color: $primary;
-                            }
+                            // .price {
+                            //     color: $primary;
+                            // }
                         }
                     }
                 }
@@ -576,4 +583,62 @@
             }
         }
     }
+}
+
+
+.tab_product_slider {
+    &.slick-slider {
+        margin: 0px;
+    }
+
+    .slick-slide {
+        padding: 0px;
+    }
+
+    .item {
+        padding: 12px 36px;
+        background:
+            linear-gradient(60deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%),
+            #F6F7F7;
+
+        .img_wrap {
+            padding: 12px 36px;
+            aspect-ratio: 205 / 140;
+            object-fit: cover;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .content {
+            .title {
+                color: #000000;
+                font-size: 20px;
+                font-weight: 700;
+                margin: 0px;
+            }
+
+            .link {
+                color: $primary;
+                text-decoration: none;
+                font-size: 10px;
+                font-weight: 700;
+            }
+
+            .real_price {
+                color: #565656;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .old_price {
+                color: #A4A4A4;
+                font-size: 10px;
+                font-weight: 600;
+                text-decoration: line-through;
+            }
+        }
+    }
+
 }
