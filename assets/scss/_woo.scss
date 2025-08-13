@@ -1,0 +1,108 @@
+body.xemer_woo_theme {
+    .woocommerce table.shop_table th {
+        font-size: 14px;
+        font-weight: 600;
+        color: #808080;
+    }
+
+    .woocommerce table.shop_table td {
+        color: #000000;
+        font-size: 16px;
+        font-weight: 700;
+
+        a {
+            text-decoration: none !important;
+            color: #000000;
+            transition: all 0.3s;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+
+        &.product-thumbnail {
+            img {
+                width: 144px;
+                height: auto;
+            }
+        }
+    }
+
+    .woocommerce a.remove {
+        display: inline-flex;
+        font-size: 16px;
+        height: 20px;
+        width: 20px;
+        line-height: 0.7;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .woocommerce table.shop_table {
+        border: 1px solid #E6E6E6;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+
+        thead,
+        tbody,
+        tfoot,
+        tr,
+        td,
+        th {
+            border-color: #E6E6E6;
+        }
+
+        .actions {
+            padding: 24px 0px;
+
+            button[name="update_cart"] {
+                padding: 12px 16px;
+                background-color: #E6E6E6;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: 600;
+                color: $primary;
+                opacity: 1;
+                border: 1px solid $primary;
+
+                &:disabled {
+                    color: #8A8A8A;
+                    border: 1px solid #E6E6E6;
+                }
+            }
+
+            input[name="coupon_code"] {
+                background-color: #F4F4F4;
+                width: 300px;
+                border: 1px solid #DCDCDC;
+                height: 48px;
+                border-radius: 8px;
+                padding: 12px 16px;
+                font-size: 16px;
+                font-weight: 600;
+                color: #868686;
+                margin-right: 8px;
+            }
+
+            button[name="apply_coupon"] {
+                height: 48px;
+                padding: 12px 36px;
+                border: 1px solid #3E6AE1;
+                border-radius: 8px;
+                background-color: #fff;
+                color: #3E6AE1;
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .woocommerce .cart-collaterals .cart_totals,
+    .woocommerce-page .cart-collaterals .cart_totals {
+        max-width: 426px;
+        border: 1px solid #CCCCCC;
+        border-radius: 8px;
+        padding: 20px;
+    }
+}

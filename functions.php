@@ -119,6 +119,14 @@ if (class_exists('WooCommerce')) {
         }
         return $classes;
     });
+
+    add_filter('woocommerce_cart_item_thumbnail', function ($product_image, $cart_item, $cart_item_key) {
+        if (isset($cart_item['product_id'])) {
+            $product_id = $cart_item['product_id'];
+            $product_image = get_the_post_thumbnail($product_id, 'full');
+        }
+        return $product_image;
+    }, 10, 3);
 }
 
 // The function "write_log" is used to write debug logs to a file in PHP.
