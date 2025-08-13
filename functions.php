@@ -241,3 +241,9 @@ function disable_plugins_update($value)
 add_filter('wp_revisions_to_keep', function ($num, $post) {
     return 3;
 }, 10, 2);
+
+// tắt thông báo rác
+add_action('admin_head', function () {
+    remove_all_actions('admin_notices');
+    remove_all_actions('all_admin_notices');
+});
