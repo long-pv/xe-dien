@@ -120,6 +120,7 @@ if (class_exists('WooCommerce')) {
         return $classes;
     });
 
+    // lấy ảnh full sửa sản phẩm trong trang cart
     add_filter('woocommerce_cart_item_thumbnail', function ($product_image, $cart_item, $cart_item_key) {
         if (isset($cart_item['product_id'])) {
             $product_id = $cart_item['product_id'];
@@ -128,6 +129,7 @@ if (class_exists('WooCommerce')) {
         return $product_image;
     }, 10, 3);
 
+    // thêm thông tin ở box tính tổng của trang cart
     add_action('woocommerce_before_cart_totals', 'custom_before_cart_totals');
     function custom_before_cart_totals()
     {
@@ -150,6 +152,24 @@ if (class_exists('WooCommerce')) {
         </div>
 <?php
     }
+
+    // Ẩn form nhập mã giảm giá ở trang checkout
+    remove_action('woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
+
+    // Thêm ảnh sản phẩm (size large) vào checkout
+    // add_filter('woocommerce_cart_item_name', 'custom_checkout_product_image_large', 10, 3);
+    // function custom_checkout_product_image_large($product_name, $cart_item, $cart_item_key)
+    // {
+    //     if (is_checkout()) {
+    //         $product   = $cart_item['data'];
+    //         $thumbnail = $product->get_image('large');
+    //         $product_name = '<div class="checkout-product-thumb">'
+    //             . $thumbnail
+    //             . '<span>' . $product_name . '</span>'
+    //             . '</div>';
+    //     }
+    //     return $product_name;
+    // }
 }
 
 // The function "write_log" is used to write debug logs to a file in PHP.
