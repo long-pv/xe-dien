@@ -26,6 +26,65 @@ body.xemer_woo_theme {
                 height: auto;
             }
         }
+
+        &.product-quantity {
+
+            /* Ẩn mũi tên tăng giảm trên Chrome, Safari, Edge */
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Ẩn trên Firefox */
+            input[type=number] {
+                -moz-appearance: textfield;
+            }
+
+            .quantity {
+                display: inline-flex;
+                align-items: center;
+                background-color: #F4F4F4;
+                padding-right: 0px;
+                border-radius: 6px;
+                border: 1px solid #DCDCDC;
+                padding: 4px;
+            }
+
+            .input-text.qty {
+                width: 34px;
+                height: 34px;
+                background-color: transparent;
+                border: none;
+                font-size: 16px;
+                font-weight: 700;
+                color: #000000;
+                outline: none !important;
+            }
+
+            .minus,
+            .plus {
+                position: unset;
+                background-color: transparent !important;
+                border: none !important;
+                outline: none !important;
+                height: 28px;
+                width: 28px;
+                color: transparent;
+                text-shadow: 0 0 0 transparent;
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .minus {
+                background-image: url("data:image/svg+xml,%3Csvg width='29' height='28' viewBox='0 0 29 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.02344 13.1765V14.8235H20.5529V13.1765H9.02344Z' fill='black' fill-opacity='0.8'/%3E%3C/svg%3E%0A");
+            }
+
+            .plus {
+                background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.2351 13.1765V8.23529H14.8822V13.1765H19.8234V14.8235H14.8822V19.7647H13.2351V14.8235H8.29395V13.1765H13.2351Z' fill='black' fill-opacity='0.8'/%3E%3C/svg%3E%0A");
+            }
+        }
     }
 
     .woocommerce a.remove {
@@ -104,5 +163,78 @@ body.xemer_woo_theme {
         border: 1px solid #CCCCCC;
         border-radius: 8px;
         padding: 20px;
+
+        h2 {
+            display: none !important;
+        }
+
+        .cart_shipping_noti {
+            display: flex;
+            padding: 12px 16px;
+            background-color: #ECF2FF;
+            border-radius: 8px;
+            gap: 12px;
+            align-items: center;
+
+            .icon {
+                display: inline-flex;
+            }
+
+            .text {
+                color: #3E6AE1;
+                font-size: 12px;
+                font-weight: 600;
+            }
+        }
+
+        .my_cart_title {
+            padding: 20px 0px;
+            color: #000000;
+            font-size: 20px;
+            font-weight: 700;
+        }
+    }
+
+    &.woocommerce-cart .cart-collaterals .cart_totals table {
+        border-top: 1px solid #e6e6e6;
+        margin: 0px;
+        border-bottom: none;
+
+        th,
+        td {
+            padding-top: 24px;
+            padding-bottom: 24px;
+            color: #000;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        td {
+            text-align: end;
+            font-weight: 500;
+            padding-right: 0px;
+        }
+
+        th {
+            font-weight: 700;
+            padding-left: 0px;
+        }
+    }
+
+    .woocommerce table.shop_table {
+        border-radius: 0px;
+    }
+
+    &.woocommerce-cart .wc-proceed-to-checkout {
+        padding: 0px;
+    }
+
+    &.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+        background-color: $primary;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
     }
 }
