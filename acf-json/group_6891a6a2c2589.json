@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_6892d969edc57",
-            "label": "Introduce",
+            "label": "Giới thiệu",
             "name": "introduce",
             "aria-label": "",
             "type": "text",
@@ -24,7 +24,7 @@
         },
         {
             "key": "field_6891a6f00073e",
-            "label": "Maximum speed",
+            "label": "Tốc độ tốI đa",
             "name": "maximum_speed",
             "aria-label": "",
             "type": "text",
@@ -44,7 +44,7 @@
         },
         {
             "key": "field_6891a7090073f",
-            "label": "Distance traveled",
+            "label": "Quãng đường di chuyển",
             "name": "distance_traveled",
             "aria-label": "",
             "type": "text",
@@ -64,7 +64,7 @@
         },
         {
             "key": "field_6891a71400740",
-            "label": "Trunk width",
+            "label": "Độ rộng cốp xe",
             "name": "trunk_width",
             "aria-label": "",
             "type": "text",
@@ -84,7 +84,7 @@
         },
         {
             "key": "field_6891a76000741",
-            "label": "Minimum price from",
+            "label": "Giá tốI thiểu từ",
             "name": "minimum_price_from",
             "aria-label": "",
             "type": "text",
@@ -121,5 +121,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1754454942
+    "modified": 1755265148
 }

@@ -235,7 +235,7 @@
 					<div class="tab_product_slider">
 						<?php for ($i = 0; $i < 6; $i++): ?>
 							<div>
-								<div class="item">
+								<div class="product_loop_item">
 									<div class="img_wrap">
 										<img src="<?php echo get_template_directory_uri() . '/assets/images/image_25.png'; ?>" alt="img">
 									</div>

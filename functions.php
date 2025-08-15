@@ -170,6 +170,49 @@ if (class_exists('WooCommerce')) {
     //     }
     //     return $product_name;
     // }
+
+    // Xoá sản phẩm liên quan mặc định và thay thế bằng code mới
+    remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+    // add_action('woocommerce_after_single_product_summary', 'custom_related_products_slider', 20);
+    // function custom_related_products_slider()
+    // {
+    //     // Lấy 3 sản phẩm liên quan
+    //     $related_products = wc_get_related_products(get_the_ID(), 3);
+
+    //     if (! empty($related_products)) {
+    //         echo '<div class="row">';
+    //         foreach ($related_products as $related_id) {
+    //             $post_object = get_post($related_id);
+    //             setup_postdata($GLOBALS['post'] = &$post_object);
+    //             echo '<div class="col-lg-4">';
+    //             wc_get_template_part('content', 'product');
+    //             echo '</div>';
+    //         }
+    //         wp_reset_postdata();
+    //         echo '</div>';
+    //     }
+    // }
+
+    // thay đổi style phân trang mặc định
+    add_filter('woocommerce_pagination_args', function ($args) {
+        // Số lượng trang hiển thị 2 bên
+        $args['end_size']   = 1;
+        $args['mid_size']   = 1;
+
+        // Text nút trước / sau
+        $args['prev_text']  = __('« Prev');
+        $args['next_text']  = __('Next »');
+
+        return $args;
+    });
+
+    // số sản phẩm trên mỗi trang shop và category
+    add_filter('loop_shop_per_page', function ($cols) {
+        return 9;
+    }, 20);
+
+    // Gỡ bỏ phần tabs mặc định
+    add_filter('woocommerce_product_tabs', '__return_empty_array', 98);
 }
 
 // The function "write_log" is used to write debug logs to a file in PHP.

@@ -237,4 +237,10 @@ body.xemer_woo_theme {
         font-weight: 600;
         color: #fff;
     }
+
+    &.woocommerce div.product div.summary,
+    &.woocommerce div.product div.images {
+        float: unset !important;
+        width: 100% !important;
+    }
 }

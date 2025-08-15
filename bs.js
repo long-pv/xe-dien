@@ -64,7 +64,7 @@ fs.watch(scssDir, { recursive: true }, (event, filename) => {
 
 // Khởi chạy BrowserSync
 browserSync.init({
-	proxy: "http://localhost/wp/xe-dien/",
+	proxy: "http://localhost:81/wp/xe-dien/",
 	files: ["**/*.php", "**/*.js", "assets/css/*.css"],
 	reloadDelay: 200,
 	open: true,

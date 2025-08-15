@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying product content within loops
  *
@@ -15,53 +16,47 @@
  * @version 9.4.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
 
 // Check if the product is a valid WooCommerce product and ensure its visibility before proceeding.
-if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
+if (! is_a($product, WC_Product::class) || ! $product->is_visible()) {
 	return;
 }
 ?>
-<li <?php wc_product_class( '', $product ); ?>>
-	<?php
-	/**
-	 * Hook: woocommerce_before_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_open - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item' );
-
-	/**
-	 * Hook: woocommerce_before_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_show_product_loop_sale_flash - 10
-	 * @hooked woocommerce_template_loop_product_thumbnail - 10
-	 */
-	do_action( 'woocommerce_before_shop_loop_item_title' );
-
-	/**
-	 * Hook: woocommerce_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_product_title - 10
-	 */
-	do_action( 'woocommerce_shop_loop_item_title' );
-
-	/**
-	 * Hook: woocommerce_after_shop_loop_item_title.
-	 *
-	 * @hooked woocommerce_template_loop_rating - 5
-	 * @hooked woocommerce_template_loop_price - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item_title' );
-
-	/**
-	 * Hook: woocommerce_after_shop_loop_item.
-	 *
-	 * @hooked woocommerce_template_loop_product_link_close - 5
-	 * @hooked woocommerce_template_loop_add_to_cart - 10
-	 */
-	do_action( 'woocommerce_after_shop_loop_item' );
-	?>
-</li>
+<div class="product_loop_item">
+	<div class="img_wrap">
+		<?php
+		echo $product->get_image('full');
+		?>
+	</div>
+	<div class="content">
+		<div class="row align-items-center">
+			<div class="col-6">
+				<h3 class="title">
+					<?php the_title(); ?>
+				</h3>
+			</div>
+			<div class="col-6 text-end">
+				<a href="<?php the_permalink(); ?>" class="link">
+					Chi tiết →
+				</a>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-6">
+				<div class="real_price">
+					<?php echo $product->get_price_html(); ?>
+				</div>
+			</div>
+			<div class="col-6 text-end">
+				<?php if ($product->is_on_sale() && $product->get_regular_price()) : ?>
+					<div class="old_price">
+						<?php echo wc_price($product->get_regular_price()); ?>
+					</div>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+</div>
