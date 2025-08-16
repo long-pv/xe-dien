@@ -163,6 +163,7 @@
                             width: 100%;
                             aspect-ratio: 112 / 92;
                             object-fit: cover;
+                            height: auto;
                         }
                     }
 
@@ -172,6 +173,12 @@
                             font-size: 18px;
                             font-weight: 700;
                             margin-bottom: 4px;
+                            text-decoration: none;
+                            display: flex;
+
+                            &:hover {
+                                color: $primary;
+                            }
                         }
 
                         .type {
