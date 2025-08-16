@@ -543,6 +543,12 @@
 }
 
 .menu_products {
+    display: none;
+    z-index: 99;
+    position: fixed;
+    left: 0px;
+    width: 100%;
+
     .nav-tabs {
         background-color: #ECEDED;
         gap: 36px;
@@ -608,11 +614,13 @@
 
     .img_wrap {
         // padding: 12px 36px;
-        aspect-ratio: 205 / 140;
-        object-fit: cover;
+        margin-bottom: 12px;
 
         img {
             width: 100%;
+            height: auto;
+            aspect-ratio: 205 / 140;
+            object-fit: cover;
         }
     }
 
@@ -727,4 +735,9 @@
             }
         }
     }
+}
+
+.menu_san_pham {
+    cursor: pointer;
+    user-select: none;
 }

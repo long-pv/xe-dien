@@ -201,82 +201,49 @@
 		</div>
 
 		<div class="menu_products">
-			<!-- Tabs -->
-			<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-				<li class="nav-item" role="presentation">
-					<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-						type="button" role="tab" aria-controls="home" aria-selected="true">
-						<span>
-							CAO CẤP
-						</span>
-					</button>
-				</li>
-				<li class="nav-item" role="presentation">
-					<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-						type="button" role="tab" aria-controls="profile" aria-selected="false">
-						<span>
-							TRUNG CẤP
-						</span>
-					</button>
-				</li>
-				<li class="nav-item" role="presentation">
-					<button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
-						type="button" role="tab" aria-controls="contact" aria-selected="false">
-						<span>
-							PHỔ THÔNG
-						</span>
-					</button>
-				</li>
-			</ul>
+			<?php
+			$tabs_san_pham = get_field('tabs_san_pham', 'option') ?? [];
+			if ($tabs_san_pham) :
+			?>
+				<!-- Tabs -->
+				<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+					<?php
+					foreach ($tabs_san_pham as $key => $item) :
+					?>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link <?php echo $key == 0 ? 'active' : ''; ?>" id="menu_prod_<?php echo $key; ?>_tab" data-bs-toggle="tab" data-bs-target="#menu_prod_<?php echo $key; ?>_content"
+								type="button" role="tab" aria-controls="#menu_prod_<?php echo $key; ?>_content" aria-selected="<?php echo $key == 0 ? 'true' : 'false'; ?>">
+								<span>
+									<?php echo $item['tieu_de']; ?>
+								</span>
+							</button>
+						</li>
+					<?php endforeach; ?>
+				</ul>
 
-			<!-- Tab Content -->
-			<div class="tab-content p-0" id="myTabContent">
-				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<div class="tab_product_slider">
-						<?php for ($i = 0; $i < 6; $i++): ?>
-							<div>
-								<div class="product_loop_item">
-									<div class="img_wrap">
-										<img src="<?php echo get_template_directory_uri() . '/assets/images/image_25.png'; ?>" alt="img">
-									</div>
-									<div class="content">
-										<div class="row align-items-center">
-											<div class="col-6">
-												<h3 class="title">
-													Felix S
-												</h3>
-											</div>
-											<div class="col-6 text-end">
-												<a href="#" class="link">
-													Chi tiết →
-												</a>
-											</div>
-										</div>
-										<div class="row align-items-center">
-											<div class="col-6">
-												<div class="real_price">
-													29.700.000 VNĐ
-												</div>
-											</div>
-											<div class="col-6 text-end">
-												<div class="old_price">
-													32.000.000 VNĐ
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+				<!-- Tab Content -->
+				<div class="tab-content p-0" id="myTabContent">
+					<?php
+					foreach ($tabs_san_pham as $key => $item):
+						$list = $item['danh_sach_san_pham'] ?? [];
+					?>
+						<div class="tab-pane fade <?php echo $key == 0 ? 'show active' : ''; ?>" id="menu_prod_<?php echo $key; ?>_content" role="tabpanel" aria-labelledby="#menu_prod_<?php echo $key; ?>_tab">
+							<div class="tab_product_slider">
+								<?php
+								foreach ($list as $product_id) {
+									$post_object = get_post($product_id);
+									setup_postdata($GLOBALS['post'] = &$post_object);
+									echo '<div>';
+									wc_get_template_part('content', 'product');
+									echo '</div>';
+								}
+								wp_reset_postdata();
+								?>
 							</div>
-						<?php endfor; ?>
-					</div>
+						</div>
+					<?php endforeach; ?>
 				</div>
-				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-					Nội dung Profile
-				</div>
-				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-					Nội dung Contact
-				</div>
-			</div>
+			<?php endif; ?>
 		</div>
 	</header>
 

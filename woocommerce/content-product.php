@@ -25,7 +25,7 @@ if (! is_a($product, WC_Product::class) || ! $product->is_visible()) {
 	return;
 }
 ?>
-<div class="product_loop_item">
+<div class="product_loop_item" data-mh="product_loop_item">
 	<div class="img_wrap">
 		<?php
 		echo $product->get_image('full');

@@ -69,7 +69,7 @@
 
 	$(".tab_product_slider").slick({
 		slidesToShow: 4,
-		slidesToScroll: 1,
+		slidesToScroll: 2,
 		arrows: false,
 		dots: false,
 		autoplay: true,
@@ -82,6 +82,43 @@
 				},
 			},
 		],
+	});
+
+	// Khi click vào .menu_san_pham thì toggle menu_products
+	$(".menu_san_pham").on("click", function (e) {
+		e.stopPropagation(); // chặn click lan ra ngoài
+		$(".menu_products")
+			.stop(true, true)
+			.slideToggle(100, function () {
+				// Khi animation xong thì refresh slick
+				$(".menu_products .slick-slider").slick("setPosition");
+				$(".menu_products .slick-slider .product_loop_item").matchHeight({ byRow: true });
+			});
+	});
+
+	// Khi click ra ngoài thì đóng menu_products
+	$(document).on("click", function () {
+		$(".menu_products").slideUp(100);
+	});
+
+	// Nếu click ngay trong menu_products thì không bị đóng
+	$(".menu_products").on("click", function (e) {
+		e.stopPropagation();
+	});
+
+	// Khi cuộn trang thì đóng menu_products
+	$(window).on("scroll", function () {
+		$(".menu_products").slideUp(100);
+	});
+
+	// ===== BOOTSTRAP TABS FIX (Slick + matchHeight) =====
+	$('button[data-bs-toggle="tab"]').on("shown.bs.tab", function (e) {
+		// Lấy id tab content từ data-bs-target (vd: #menu_prod_1_content)
+		let targetId = $(e.target).data("bsTarget");
+		let $tabContent = $(targetId);
+		// Refresh slick + matchHeight trong tab vừa active
+		$tabContent.find(".tab_product_slider").slick("setPosition");
+		$tabContent.find(".product_loop_item").matchHeight({ byRow: true });
 	});
 
 	// ... longpv
