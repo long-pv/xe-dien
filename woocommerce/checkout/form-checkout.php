@@ -41,6 +41,12 @@ if (! $checkout->is_registration_enabled() && $checkout->is_registration_require
 			<div class="col-lg-6 mb-4">
 				<div id="customer_details">
 					<div class="mb-4">
+						<div class="title">
+							Thông tin Khách hàng
+						</div>
+						<div class="desc">
+							Bạn vui lòng nhập đúng số điện thoại để chúng tôi sẽ gọi xác nhận đơn hàng trước khi giao hàng. Xin cảm ơn!
+						</div>
 						<?php do_action('woocommerce_checkout_billing'); ?>
 					</div>
 					<div>
