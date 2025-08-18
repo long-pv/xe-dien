@@ -130,6 +130,11 @@
 		$(this).closest(".wc_payment_method").addClass("active"); // add cho item đang chọn
 	});
 
+	$(document).on("click", ".add_to_cart_fake", function (e) {
+		e.preventDefault();
+		$(".button.single_add_to_cart_button").trigger("click");
+	});
+
 	// ... longpv
 	//
 	//

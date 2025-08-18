@@ -52,15 +52,15 @@ function buildAllMain() {
 }
 
 // Watch SCSS (kể cả partial)
-fs.watch(scssDir, { recursive: true }, (event, filename) => {
-	if (!filename) {
-		console.warn("⚠️ Tên file thay đổi là null, bỏ qua");
-		return;
-	}
-	if (filename.endsWith(".scss")) {
-		buildAllMain();
-	}
-});
+// fs.watch(scssDir, { recursive: true }, (event, filename) => {
+// 	if (!filename) {
+// 		console.warn("⚠️ Tên file thay đổi là null, bỏ qua");
+// 		return;
+// 	}
+// 	if (filename.endsWith(".scss")) {
+// 		buildAllMain();
+// 	}
+// });
 
 // Khởi chạy BrowserSync
 browserSync.init({
@@ -71,4 +71,4 @@ browserSync.init({
 });
 
 // Build ban đầu
-buildAllMain();
+// buildAllMain();
