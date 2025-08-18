@@ -224,6 +224,36 @@ if (class_exists('WooCommerce')) {
     add_filter('woocommerce_order_button_text', function () {
         return 'Thanh toán';
     });
+
+    // hook thay đổi trang single product
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+
+    // Fake Thông tin 1 (sau tên sp)
+    add_action('woocommerce_single_product_summary', function () {
+        echo '<div class="custom-info-1">Thông tin 1 (fake)</div>';
+    }, 6);
+
+    // Fake VAT note (sau giá)
+    add_action('woocommerce_single_product_summary', function () {
+        echo '<div class="custom-vat-note">Đã bao gồm VAT, 01 Bộ sạc & Ắc quy</div>';
+    }, 15);
+
+    // Fake Thông tin 3 (sau add to cart)
+    add_action('woocommerce_single_product_summary', function () {
+        echo '<div class="custom-info-3">Thông tin 3 (fake)</div>';
+    }, 35);
+
+    // Fake nút hành động (sau info 3)
+    add_action('woocommerce_single_product_summary', function () {
+        echo '<div class="product-actions">';
+        echo '<a href="#tu-van" class="btn btn-consult">Nhận tư vấn</a>';
+        echo '<button type="button" class="btn btn-add fake-add-to-cart">Thêm sản phẩm</button>';
+        echo '</div>';
+    }, 36);
+    // end single product
 }
 
 // The function "write_log" is used to write debug logs to a file in PHP.
