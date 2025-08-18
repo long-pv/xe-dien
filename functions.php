@@ -213,6 +213,17 @@ if (class_exists('WooCommerce')) {
 
     // Gỡ bỏ phần tabs mặc định
     add_filter('woocommerce_product_tabs', '__return_empty_array', 98);
+
+    // tắt hoàn toàn text chính sách ở trang checkout
+    add_action('wp', function () {
+        remove_action('woocommerce_checkout_terms_and_conditions', 'wc_checkout_privacy_policy_text', 20);
+        remove_action('woocommerce_checkout_terms_and_conditions', 'wc_terms_and_conditions_page_content', 30);
+    });
+
+    // thay text nút đặt hàng
+    add_filter('woocommerce_order_button_text', function () {
+        return 'Thanh toán';
+    });
 }
 
 // The function "write_log" is used to write debug logs to a file in PHP.

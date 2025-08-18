@@ -121,6 +121,15 @@
 		$tabContent.find(".product_loop_item").matchHeight({ byRow: true });
 	});
 
+	// Mặc định add active cho item đầu tiên
+	$(".wc_payment_methods .wc_payment_method:first").addClass("active");
+
+	// Khi click vào radio thì set lại active
+	$(document).on("change", ".wc_payment_methods .input-radio", function () {
+		$(".wc_payment_methods .wc_payment_method").removeClass("active"); // xóa hết
+		$(this).closest(".wc_payment_method").addClass("active"); // add cho item đang chọn
+	});
+
 	// ... longpv
 	//
 	//

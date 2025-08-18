@@ -325,6 +325,33 @@ body.xemer_woo_theme {
                 }
             }
         }
+
+        .woocommerce-additional-fields {
+            h3 {
+                display: none;
+            }
+
+            label[for="order_comments"] {
+                display: none;
+            }
+
+            #order_comments {
+                height: 96px;
+                border: 1px solid #E5E5E5;
+                border-radius: 4px;
+                padding: 12px 16px;
+                outline: none !important;
+                font-size: 16px;
+                font-weight: 600;
+                color: #000000 !important;
+
+                &::placeholder {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #000000 !important;
+                }
+            }
+        }
     }
 
     .woocommerce form .form-row {
@@ -333,6 +360,209 @@ body.xemer_woo_theme {
 
         &:last-child {
             margin-bottom: 0px;
+        }
+
+        #billing_first_name {
+            background-position: right 16px center;
+            background-repeat: no-repeat;
+            background-size: 24px 24px;
+            background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.5 22H5.5V20.1905C5.5 17.6921 7.45876 15.6667 9.875 15.6667H15.125C17.5412 15.6667 19.5 17.6921 19.5 20.1905V22ZM12.5 13.8571C9.6005 13.8571 7.25 11.4267 7.25 8.42857C7.25 5.43045 9.6005 3 12.5 3C15.3995 3 17.75 5.43045 17.75 8.42857C17.75 11.4267 15.3995 13.8571 12.5 13.8571Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A");
+        }
+
+        #billing_cccd {
+            background-position: right 16px center;
+            background-repeat: no-repeat;
+            background-size: 24px 24px;
+            background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 4.99509C3.5 3.89323 4.39262 3 5.49509 3H19.5049C20.6068 3 21.5 3.89262 21.5 4.99509V19.0049C21.5 20.1068 20.6074 21 19.5049 21H5.49509C4.39323 21 3.5 20.1074 3.5 19.0049V4.99509ZM5.5 5V19H19.5V5H5.5ZM8.47216 18.1808C7.85347 17.9129 7.26719 17.5843 6.72083 17.2024C7.96773 15.2753 10.136 14 12.6022 14C15.0015 14 17.1189 15.2071 18.3801 17.0472C17.8438 17.4436 17.2664 17.7877 16.6555 18.0718C15.7472 16.8166 14.27 16 12.6022 16C10.8865 16 9.37271 16.8641 8.47216 18.1808ZM12.5 13C10.567 13 9 11.433 9 9.5C9 7.567 10.567 6 12.5 6C14.433 6 16 7.567 16 9.5C16 11.433 14.433 13 12.5 13ZM12.5 11C13.3284 11 14 10.3284 14 9.5C14 8.67157 13.3284 8 12.5 8C11.6716 8 11 8.67157 11 9.5C11 10.3284 11.6716 11 12.5 11Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A");
+        }
+
+        #billing_address_1 {
+            background-position: right 16px center;
+            background-repeat: no-repeat;
+            background-size: 24px 24px;
+            background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 21H22.5' stroke='%23CBCBCB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7.5 13H5.5C4.94772 13 4.5 13.4477 4.5 14V20C4.5 20.5523 4.94772 21 5.5 21H7.5C8.05228 21 8.5 20.5523 8.5 20V14C8.5 13.4477 8.05228 13 7.5 13Z' stroke='%23CBCBCB' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M6.5 17H7' stroke='%23CBCBCB' stroke-width='2' stroke-linecap='square' stroke-linejoin='round'/%3E%3Cpath d='M19.5 2H9.5C8.94772 2 8.5 2.44772 8.5 3V20C8.5 20.5523 8.94772 21 9.5 21H19.5C20.0523 21 20.5 20.5523 20.5 20V3C20.5 2.44772 20.0523 2 19.5 2Z' stroke='%23CBCBCB' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M11.5 5H13.5V7H11.5V5ZM15.5 5H17.5V7H15.5V5ZM11.5 8.5H13.5V10.5H11.5V8.5ZM15.5 8.5H17.5V10.5H15.5V8.5ZM15.5 12H17.5V14H15.5V12ZM15.5 15.5H17.5V17.5H15.5V15.5Z' fill='%23CBCBCB'/%3E%3C/svg%3E%0A");
+        }
+
+        #billing_phone {
+            background-position: right 16px center;
+            background-repeat: no-repeat;
+            background-size: 24px 24px;
+            background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5 2H8.5C7.96957 2 7.46086 2.21071 7.08579 2.58579C6.71071 2.96086 6.5 3.46957 6.5 4V20C6.5 20.5304 6.71071 21.0391 7.08579 21.4142C7.46086 21.7893 7.96957 22 8.5 22H16.5C17.0304 22 17.5391 21.7893 17.9142 21.4142C18.2893 21.0391 18.5 20.5304 18.5 20V4C18.5 3.46957 18.2893 2.96086 17.9142 2.58579C17.5391 2.21071 17.0304 2 16.5 2ZM13.5 21H11.5V20H13.5V21ZM16.5 19H8.5V5H16.5V19Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A");
+        }
+
+        #billing_email {
+            background-position: right 16px center;
+            background-repeat: no-repeat;
+            background-size: 24px 24px;
+            background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 3H21.5C22.0523 3 22.5 3.44772 22.5 4V20C22.5 20.5523 22.0523 21 21.5 21H3.5C2.94772 21 2.5 20.5523 2.5 20V4C2.5 3.44772 2.94772 3 3.5 3ZM12.5606 11.6829L6.14722 6.2377L4.85278 7.7623L12.5731 14.3171L20.1544 7.75616L18.8456 6.24384L12.5606 11.6829Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A");
+        }
+    }
+
+    #order_review {
+        .title {
+            color: #000000;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .shop_table {
+            padding: 20px;
+            border: 1px solid #CCCCCC;
+            border-radius: 8px;
+
+            .order-heading {
+                font-size: 20px;
+                font-weight: 700;
+                color: #000000;
+                padding: 0px;
+                padding-bottom: 20px;
+            }
+
+            td {
+                text-align: end;
+                padding-right: 0px;
+            }
+
+            th {
+                padding-left: 0px;
+            }
+
+            tfoot {
+                th {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #000000;
+                    margin-bottom: 12px;
+                }
+
+                .woocommerce-Price-amount.amount {
+                    font-weight: 700;
+                }
+            }
+
+            .woocommerce-Price-amount.amount {
+                font-size: 14px;
+                font-weight: 500;
+                color: #000000;
+            }
+
+            .cart_item {
+                .title {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #000000;
+                    margin-bottom: 12px;
+                }
+
+                .vat-label {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #000000;
+                    margin-bottom: 8px;
+                }
+
+                .vat-note {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #000000;
+                }
+
+                .variation {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #000000;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+
+        #payment {
+            padding: 20px;
+            border: 1px solid #CCCCCC;
+            border-radius: 8px;
+            background-color: #fff;
+
+            .form-row.place-order {
+                padding: 0px;
+                margin: 0px;
+
+                #place_order {
+                    float: unset;
+                    width: 100%;
+                    border-radius: 8px;
+                    padding: 12px;
+                    background-color: #3E6AE1;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #fff;
+                }
+            }
+
+            .wc_payment_methods {
+                padding: 24px;
+                border: none;
+
+                .wc_payment_method {
+                    padding: 0px;
+                    margin: 0px;
+                    position: relative;
+
+                    label {
+                        display: flex;
+                        padding: 16px 20px;
+                        background-color: #F6F6F6;
+                        position: relative;
+                        align-items: center;
+                        gap: 12px;
+                        border-top: 1px solid #E6E9EE;
+                        border-bottom: 1px solid #E6E9EE;
+
+                        .icon {
+                            width: 16px;
+                            height: 16px;
+                            flex-shrink: 0;
+                            display: inline-flex;
+                            background-size: cover;
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3CforeignObject x='-7.5' y='-8' width='32' height='32'%3E%3Cdiv xmlns='http://www.w3.org/1999/xhtml' style='backdrop-filter:blur(4px);clip-path:url(%23bgblur_0_4094_454_clip_path);height:100%25;width:100%25'%3E%3C/div%3E%3C/foreignObject%3E%3Cg data-figma-bg-blur-radius='8'%3E%3Ccircle cx='8.5' cy='8' r='8' fill='black' fill-opacity='0.04'/%3E%3Ccircle cx='8.5' cy='8' r='7.5' stroke='black' stroke-opacity='0.4'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='bgblur_0_4094_454_clip_path' transform='translate(7.5 8)'%3E%3Ccircle cx='8.5' cy='8' r='8'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+                        }
+                    }
+
+                    .payment_box {
+                        padding: 16px;
+                        margin: 0px;
+                        position: unset;
+                        background: #F5F8FD;
+                        font-size: 12px;
+                        font-weight: 600;
+                        color: #626365;
+
+                        &::before {
+                            display: none;
+                        }
+                    }
+
+                    .input-radio {
+                        width: 1px;
+                        height: 1px;
+                        opacity: 0;
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                    }
+
+                    &.active {
+                        label {
+                            background-color: #D1DBF8;
+
+                            .icon {
+                                background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3CforeignObject x='-7.5' y='-8' width='32' height='32'%3E%3Cdiv xmlns='http://www.w3.org/1999/xhtml' style='backdrop-filter:blur(4px);clip-path:url(%23bgblur_0_4094_1039_clip_path);height:100%25;width:100%25'%3E%3C/div%3E%3C/foreignObject%3E%3Ccircle data-figma-bg-blur-radius='8' cx='8.5' cy='8' r='8' fill='%233E6AE1'/%3E%3CforeignObject x='-6.5' y='-7' width='30' height='30'%3E%3Cdiv xmlns='http://www.w3.org/1999/xhtml' style='backdrop-filter:blur(4px);clip-path:url(%23bgblur_1_4094_1039_clip_path);height:100%25;width:100%25'%3E%3C/div%3E%3C/foreignObject%3E%3Ccircle data-figma-bg-blur-radius='8' cx='8.5' cy='8' r='6.25' fill='%233E6AE1' stroke='white' stroke-width='1.5'/%3E%3Cdefs%3E%3CclipPath id='bgblur_0_4094_1039_clip_path' transform='translate(7.5 8)'%3E%3Ccircle cx='8.5' cy='8' r='8'/%3E%3C/clipPath%3E%3CclipPath id='bgblur_1_4094_1039_clip_path' transform='translate(6.5 7)'%3E%3Ccircle cx='8.5' cy='8' r='6.25'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
