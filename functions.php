@@ -408,8 +408,43 @@ if (class_exists('WooCommerce')) {
                 </div>
             </div>
         </div>
-<?php
+    <?php
     }, 35);
+
+    // Xoá gallery thumbnail khỏi single product
+    remove_action('woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20);
+
+    // thêm html dưới gallery image
+    add_action('woocommerce_before_single_product_summary', 'custom_html_after_main_image', 25);
+    function custom_html_after_main_image()
+    {
+    ?>
+        <div class="list_phu_kien">
+            <div class="row">
+                <?php for ($i = 0; $i < 5; $i++) : ?>
+                    <div class="col_custom">
+                        <div class="item" data-mh="item">
+                            <div class="img_wrap">
+                                <img src="https://kenh14cdn.com/thumb_w/660/2017/naruto-headband-1507616035705.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                Hệ thống đèn Full LED & Đèn pha LED projector
+                            </div>
+                        </div>
+                    </div>
+                <?php endfor; ?>
+            </div>
+        </div>
+<?php
+    }
+
+    // Xoá breadcrumb mặc định
+    remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+    add_action('woocommerce_before_main_content', 'my_custom_breadcrumb', 20);
+    function my_custom_breadcrumb()
+    {
+        wp_breadcrumbs();
+    }
 }
 
 // The function "write_log" is used to write debug logs to a file in PHP.
@@ -499,3 +534,100 @@ function add_dropdown_arrow_to_menu($items, $args)
     return $items;
 }
 add_filter('wp_nav_menu_items', 'add_dropdown_arrow_to_menu', 10, 2);
+
+/**
+ * Breadcrumbs
+ */
+function wp_breadcrumbs()
+{
+    $delimiter = '
+	<span class="icon">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5 12.0887L8.5 6.97642L9.63613 5.63672L16.0001 12.0007L9.63613 18.3646L8.5 16.8759L13.5 12.0887Z" fill="black" fill-opacity="0.8"/>
+        </svg>
+	</span>
+	';
+
+    $home = __('Home', 'basetheme');
+    $before = '<span class="current">';
+    $after = '</span>';
+    if (!is_admin() && !is_home() && (!is_front_page() || is_paged())) {
+
+        global $post;
+
+        echo '<nav id="breadcrumbs" class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">';
+
+        $homeLink = home_url();
+        if ($post->post_type != 'product') {
+            echo '<a href="' . $homeLink . '">' . $home . '</a>' . $delimiter . ' ';
+        }
+
+        switch (true) {
+            case is_category() || is_archive():
+                $cat_obj = get_queried_object();
+                echo $before . $cat_obj->name . $after;
+                break;
+
+            case is_single() && !is_attachment():
+                $post_type = $post->post_type;
+
+                if ($post_type == 'post') {
+                    $categories = get_the_category($post->ID);
+
+                    if (!empty($categories)) {
+                        $first_category = $categories[0];
+                        echo '<a aria-label="' . $first_category->name . '" href="' . get_category_link($first_category->term_id) . '">' . $first_category->name . '</a>' . $delimiter . ' ';
+                    }
+                }
+
+                if ($post_type == 'product') {
+                    echo '<span>Sản phẩm</span>' . $delimiter;
+                }
+
+                echo $before . $post->post_title . $after;
+                break;
+
+            case is_page():
+                if ($post->post_parent) {
+                    $parent_id = $post->ID;
+                    echo generate_page_parent($parent_id, $delimiter);
+                }
+
+                echo $before . get_the_title() . $after;
+                break;
+
+            case is_search():
+                echo $before . 'Search' . $after;
+                break;
+
+            case is_404():
+                echo $before . 'Error 404' . $after;
+                break;
+        }
+
+        echo '</nav>';
+    }
+} // end wp_breadcrumbs()
+
+// Generate breadcrumbs ancestor page
+function generate_page_parent($parent_id, $delimiter)
+{
+    $breadcrumbs = [];
+    $output = '';
+
+    while ($parent_id) {
+        $page = get_post($parent_id);
+        $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+        $parent_id = $page->post_parent;
+    }
+
+
+    $breadcrumbs = array_reverse($breadcrumbs);
+    array_pop($breadcrumbs);
+
+    foreach ($breadcrumbs as $crumb) {
+        $output .= $crumb . $delimiter;
+    }
+
+    return rtrim($output);
+}

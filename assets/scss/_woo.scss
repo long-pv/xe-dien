@@ -680,7 +680,7 @@ body.xemer_woo_theme {
                 .reset_variations {
                     text-align: center;
                     margin: 0px;
-                    display: block;
+                    display: none !important;
                 }
 
                 .woocommerce-variation-add-to-cart {
@@ -694,7 +694,65 @@ body.xemer_woo_theme {
         // end biến thể
 
         // mặc định
+        .site-main {
+            position: relative;
+
+            .breadcrumbs {
+                position: absolute;
+                margin-bottom: 0px;
+                left: 60px;
+                top: 38px;
+                z-index: 99;
+            }
+        }
+
+        .list_phu_kien {
+            @include media-breakpoint-up(lg) {
+                padding-left: 16px;
+            }
+
+            .col_custom {
+                flex: 0 0 auto;
+                width: 20%;
+            }
+
+            .row {
+                --bs-gutter-x: 16px;
+                row-gap: 16px;
+            }
+
+            .item {
+                background-color: #EFF3F7;
+                border-radius: 4px;
+                padding: 2px;
+                border: 2px solid #EFF4F7;
+
+                img {
+                    aspect-ratio: 185 / 125;
+                    object-fit: cover;
+                    width: 100%;
+                    height: auto !important;
+                }
+
+                .content {
+                    padding: 4px 10px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #48494A;
+                    text-align: center;
+                }
+            }
+        }
+
+        .woocommerce-product-gallery {
+            // .flex-control-nav.flex-control-thumbs {
+            //     display: none !important;
+            // }
+        }
+
         .entry-summary {
+            padding: 36px 24px;
+
             .product_title {
                 font-size: 32px;
                 font-weight: 700;

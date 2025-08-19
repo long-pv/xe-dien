@@ -2,15 +2,18 @@
 .breadcrumbs {
     position: relative;
     margin-bottom: 24px;
+    display: flex;
+    align-items: center;
 
     a,
+    span,
     .current {
-        color: $success;
+        color: #333333;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 500;
 
         &.current {
-            color: $primary;
+            color: #333333;
         }
     }
 
@@ -19,25 +22,12 @@
 
         @include media-breakpoint-up(lg) {
             &:hover {
-                // color: $secondary;
                 text-decoration: underline;
             }
         }
     }
 
     .icon {
-        padding: 0px 8px;
-        margin: 0px 8px;
-        position: relative;
-
-        svg {
-            position: absolute;
-            top: 2px;
-            left: 0%;
-
-            path {
-                stroke: $success;
-            }
-        }
+        display: inline-flex;
     }
 }

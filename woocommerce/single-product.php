@@ -21,7 +21,7 @@ if (! defined('ABSPATH')) {
 }
 
 get_header('shop'); ?>
-<div class="container">
+<div class="container-fluid ps-lg-0">
 	<?php
 	/**
 	 * woocommerce_before_main_content hook.
