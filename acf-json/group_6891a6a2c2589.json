@@ -101,6 +101,51 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_68a49304a19bc",
+            "label": "Thông tin chi tiết",
+            "name": "info_details",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_68a49355a19bd",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_68a49304a19bc"
+                }
+            ]
         }
     ],
     "location": [
@@ -121,5 +166,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1755265148
+    "modified": 1755617768
 }
