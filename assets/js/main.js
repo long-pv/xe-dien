@@ -135,6 +135,27 @@
 		$(".button.single_add_to_cart_button").trigger("click");
 	});
 
+	$(document).on("click", ".woocommerce-message", function (e) {
+		let $box = $(this);
+		let offset = $box.offset();
+		let width = $box.outerWidth();
+
+		// Vị trí click so với box
+		let x = e.pageX - offset.left;
+		let y = e.pageY - offset.top;
+
+		// Vùng giả lập của ::after
+		let afterTop = 8; // từ trên xuống 8px
+		let afterRight = 8; // từ phải vào 8px
+		let afterWidth = 16; // rộng 16px
+		let afterHeight = 16; // cao 16px
+
+		// Check xem click có nằm trong vùng ::after không
+		if (x >= width - afterRight - afterWidth && x <= width - afterRight && y >= afterTop && y <= afterTop + afterHeight) {
+			$box.fadeOut(); // đóng thông báo
+		}
+	});
+
 	// ... longpv
 	//
 	//

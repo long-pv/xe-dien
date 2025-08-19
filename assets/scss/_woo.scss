@@ -576,6 +576,59 @@ body.xemer_woo_theme {
     }
 
     &.single-product {
+        .woocommerce-message {
+            position: fixed;
+            left: 50%;
+            bottom: 60px;
+            z-index: 100;
+            transform: translateX(-50%);
+            margin: 0px;
+            border-radius: 15px;
+            background-color: #3E6AE1 !important;
+            padding: 32px 32px 32px 64px;
+            border: 1px solid #FFFFFF !important;
+            color: #fff !important;
+            outline: none !important;
+            font-size: 16px;
+            font-weight: 700;
+
+            a {
+                display: none !important;
+            }
+
+            &::before {
+                content: '';
+                background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_2050_7334)'%3E%3Cpath d='M23.7969 8.48438H23.0938V7.78125C23.0938 7.39261 22.7793 7.07812 22.3906 7.07812C22.002 7.07812 21.6875 7.39261 21.6875 7.78125V8.48438H20.9844C20.5957 8.48438 20.2812 8.79886 20.2812 9.1875C20.2812 9.57614 20.5957 9.89062 20.9844 9.89062H21.6875V10.5938C21.6875 10.9824 22.002 11.2969 22.3906 11.2969C22.7793 11.2969 23.0938 10.9824 23.0938 10.5938V9.89062H23.7969C24.1855 9.89062 24.5 9.57614 24.5 9.1875C24.5 8.79886 24.1855 8.48438 23.7969 8.48438Z' fill='white'/%3E%3Cpath d='M20.9375 5.67188C21.3258 5.67188 21.6406 5.35708 21.6406 4.96875C21.6406 4.58042 21.3258 4.26562 20.9375 4.26562C20.5492 4.26562 20.2344 4.58042 20.2344 4.96875C20.2344 5.35708 20.5492 5.67188 20.9375 5.67188Z' fill='white'/%3E%3Cpath d='M18.125 9.89062C18.5133 9.89062 18.8281 9.57583 18.8281 9.1875C18.8281 8.79917 18.5133 8.48438 18.125 8.48438C17.7367 8.48438 17.4219 8.79917 17.4219 9.1875C17.4219 9.57583 17.7367 9.89062 18.125 9.89062Z' fill='white'/%3E%3Cpath d='M12.0028 17.1278C12.2775 16.8532 12.7225 16.8532 12.9971 17.1278L13.2031 17.3339V11.2969H11.7969V17.3339L12.0028 17.1278Z' fill='white'/%3E%3Cpath d='M19.5312 11.2969H14.6093V19.0312C14.6093 19.3155 14.4384 19.5723 14.1754 19.6807C14.0882 19.7171 13.9968 19.7343 13.9062 19.7343C13.7236 19.7343 13.5437 19.6629 13.4091 19.5283L12.5 18.6192L11.5908 19.5283C11.3889 19.7302 11.0882 19.7899 10.8245 19.6807C10.5615 19.5723 10.3905 19.3155 10.3905 19.0312V11.2969H9.99633L4.76562 14.3169V23.2968C4.76562 23.6854 5.08011 23.9999 5.46875 23.9999H19.5312C19.9198 23.9999 20.2343 23.6854 20.2343 23.2968V12C20.2343 11.6114 19.9198 11.2969 19.5312 11.2969Z' fill='white'/%3E%3Cpath d='M17.879 4.30973L16.4728 1.87412C16.3794 1.71278 16.2256 1.59465 16.0457 1.54661C15.8665 1.49922 15.6736 1.52397 15.5122 1.61664L13.349 2.86557C13.3508 2.37498 13.2345 1.84299 12.9826 1.40706C12.607 0.75611 12.0007 0.290597 11.2749 0.0962547C10.5505 -0.0966817 9.79176 0.00217714 9.14085 0.377081C8.23931 0.898234 7.7003 1.86845 7.73597 2.90939L7.7408 3.05771C7.7408 3.06319 7.7408 3.06802 7.7415 3.0735L7.81017 5.15033L6.07642 4.07001C6.07571 4.06931 6.07435 4.06865 6.07365 4.06795L5.94732 3.98897C5.06294 3.43899 3.95468 3.41836 3.05178 3.93951C2.40083 4.31512 1.93532 4.9214 1.74097 5.64721C1.54663 6.37301 1.64624 7.13103 2.0218 7.78198C2.27844 8.22565 2.6397 8.5706 3.05511 8.80895L0.851713 10.0541C0.51534 10.2483 0.400169 10.6783 0.594324 11.0147L2.04721 13.4505C2.24136 13.7868 2.67134 13.902 3.00772 13.7079L17.6217 5.27024C17.9579 5.07613 18.0731 4.6461 17.879 4.30973ZM5.1603 7.59345C4.48816 7.98002 3.62693 7.7502 3.23984 7.0789C2.8519 6.40737 3.08328 5.54493 3.75481 5.15769C4.20593 4.89609 4.76144 4.90705 5.20295 5.1824L7.19054 6.42125L5.1603 7.59345ZM11.9053 3.22406C11.8085 3.58627 11.5759 3.8895 11.2509 4.07695L9.22007 5.24947L9.14085 2.8613C9.1237 2.34015 9.39355 1.85537 9.84397 1.59512C10.1681 1.40631 10.5471 1.35756 10.911 1.45436C11.2736 1.55186 11.5771 1.78464 11.7645 2.11009C11.9527 2.43563 12.0028 2.86083 11.9053 3.22406Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_2050_7334'%3E%3Crect width='24' height='24' fill='white' transform='translate(0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                left: 32px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            &::after {
+                content: '';
+                cursor: pointer;
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 16px;
+                height: 16px;
+                position: absolute;
+                right: 8px;
+                top: 8px;
+                z-index: 10;
+                background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3332 4.66675L4.6665 11.3334' stroke='white' stroke-width='1.13333' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.6665 4.66675L11.3332 11.3334' stroke='white' stroke-width='1.13333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            }
+        }
+
+        .content_left {
+            padding-bottom: 36px;
+        }
 
         // sản phẩm thường
         .product-type-simple {
@@ -752,6 +805,9 @@ body.xemer_woo_theme {
 
         .entry-summary {
             padding: 36px 24px;
+            background-color: #FBFBFB;
+            margin-bottom: 0px !important;
+            height: 100%;
 
             .product_title {
                 font-size: 32px;
@@ -810,6 +866,11 @@ body.xemer_woo_theme {
 
                         .icon {
                             display: inline-flex;
+
+                            img {
+                                width: 20px;
+                                height: auto;
+                            }
                         }
 
                         .title {

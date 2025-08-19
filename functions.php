@@ -249,7 +249,7 @@ if (class_exists('WooCommerce')) {
                 <div class="col-lg-4">
                     <div class="item">
                         <div class="value">
-                            82 km/lần sạc
+                            <?php echo get_field('distance_traveled') ?? 'N/A'; ?>
                         </div>
                         <div class="label">
                             Quãng đường di chuyển
@@ -259,7 +259,7 @@ if (class_exists('WooCommerce')) {
                 <div class="col-lg-4">
                     <div class="item">
                         <div class="value">
-                            49 km/h
+                            <?php echo get_field('maximum_speed') ?? 'N/A'; ?>
                         </div>
                         <div class="label">
                             Tốc độ tối đa
@@ -269,7 +269,7 @@ if (class_exists('WooCommerce')) {
                 <div class="col-lg-4">
                     <div class="item">
                         <div class="value">
-                            22 lít
+                            <?php echo get_field('trunk_width') ?? 'N/A'; ?>
                         </div>
                         <div class="label">
                             Độ rộng cốp xe
@@ -297,102 +297,36 @@ if (class_exists('WooCommerce')) {
     // Fake VAT note (sau giá)
     add_action('woocommerce_single_product_summary', function () {
     ?>
-        <div class="list_uu_diem">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="item">
-                        <div class="heading">
-                            <div class="icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <rect width="20" height="20" fill="url(#pattern0_4117_133)" />
-                                    <defs>
-                                        <pattern id="pattern0_4117_133" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0_4117_133" transform="scale(0.0208333)" />
-                                        </pattern>
-                                        <image id="image0_4117_133" width="48" height="48" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMKADAAQAAAABAAAAMAAAAADbN2wMAAADfUlEQVRoBe2XTVLbMBSAnxQWXXKADrE3pUwXzQ0abkBP0PQEpScoN4CeoOEG9ASYE2AWHUq7kAPdk3UnkfpeEk2EsGTZVrKpNePR099779PPkwzQpW4GuhnoZqCbgRYzwHxjbyeTDxzgGIDlIOffJUB+kKaFb8y225wA5PxBv3++hGBjw7EC5UyCyqTs3bxJX+ZG29ZFJ8Dd5F6gkycOCNPRAhjkSqmruexl2wZyAvwUkzPG2SeEGAVAmEBTBMoISElJWy4zG2PLTgBz6zSAMP2cMlwhxlg2m82uYgO5AYRIOO8J7UlLCK1mkSNQBgryOQaGtkBOALJE5wCzhGRKMSGWGjG+Icyrvb1DXa6bY5T0psxs5cDGOjoRjNnWVFYKhtdC7DYd7wVAJzNb8SYgXgAMbDuhZS8ASHlVpig2BAO+GYDVrTvdNASG67dlNkLq/Cuw1HDhUhRxJYYuG1X1lQBKqhufkkgQSdODXAkwh17mA6A2EwIffe+lnB/il5KMzQX1qUpND7L3HtBG8T54RHlXl505Oryfpk+2nMAQ+Xd5IXrH40p/fp32z5y6HQ2VK7AYp/DmDEj43J7a3dI0nXLOKh1repCDAOhhZjvmKBdl9TMpS+utvke40t9uhRha9d5iGADI3Ktl3ZisxbWEZ2S4LjmlXWwZ4fvrkm57Zy+rIegM0JjAc1DQAV7dHwtTP8SfwQ6X15bdyqJ+d1V1DAb4dX9/Se+WKoXYXihQXxXAYw/YAPMR1tHs1k4hEEFbiCzTez7Qg4QBO6XQis4f45g6zo9NGzo8m3W2HAxAPyP24Jhlmu39/t5Hyk29VRDBAHjR5Kh4aiqPJZtbhX5fSyDOXLaCASie06+hS1HTetN5rWOH80TLq9w5ccEApEjO/e8iy2hlscz53w8PX6RUJ8bgRWQzyk/EWgAK5MWT0S0KdZw3w7JtshbA4gdcQWuIWM4TTPA9YJLT05dej4zzAVPsHTCVoKqB2cclx3SebDQCKHPuOdTiPzcx+8Z2nnRHAzAdJZkeZpiNSF6lMcV5XaDcdWB9e94cT3KtM2AP9pXxTXRutY/MR1oM50n/xlaAlJPDdJOSrBNtI4rzZaGyzsxrfRsFICNlENr4Kn/2grXavcWNA5B1D0Qr50n3VgAcEK2d3yoAGbsT4gh475Rk+8eH6rrUzUA3A//hDPwDgz/roA6WrE4AAAAASUVORK5CYII=" />
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="title">
-                                Kiểu dáng
-                            </div>
-                        </div>
-                        <div class="desc">
-                            Thiết kế nhỏ gọn, trẻ trung, năng động với các đường nét bo tròn phù hợp với vóc dáng người Việt
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="item">
-                        <div class="heading">
-                            <div class="icon">
-                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <rect x="0.5" width="20" height="20" fill="url(#pattern0_2035_2745)" />
-                                    <defs>
-                                        <pattern id="pattern0_2035_2745" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0_2035_2745" transform="scale(0.0208333)" />
-                                        </pattern>
-                                        <image id="image0_2035_2745" width="48" height="48" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMKADAAQAAAABAAAAMAAAAADbN2wMAAAD7klEQVRoBe1ZXU4bMRC2vaFIvJBnpKS7ldoq6kPhBKQnKJyAcILCCQgnoD0B9ATlBk1P0H2pItqHTcIBun2poGLX/SYbR2b/bJKwaaVYWsb2/HhmPONxDGOrtvLAygMrD6w8MIcH+Ky8P66vT+JYHoE/jOPoTcvzBkpWPwhcIcQnxvi2ELz7vNE4VTiCZbw6nU1f2BClaYIgqEP5Lubr+FzOBBkybcmYb9ME0X0FvUKaeBWdLZzJgJtE8eka3OGb0wE66fHm+voUb+LV5dj0azZEiuZbEGwLVoM3pavmCCIO3X4w6qg5Gks1ALy5vd3pB9deMnWfl8WsDlybcDfszt/xvDChs/uLtcztKgj2mHDOQTkNBTPXjBScXfyOomNbQ4w7QAkJ5ZGQFTXJOhvcIUft26xozIF0gtoInZuGsz098cvkGXdAOPy11AIap8ppmcBZcY7Dd7FOW/E/QR6h76txETQakGZseU+76blFjPvBsIua0VayksNCjYphrgF0ogiH7RIbvOIWsz8exnHkydVodIBTJoyi6INeKPVVMwaMlRfsnGlhozNU1VfhRGqgqrcBdvBlWsYAziROANht0agurDnOmQVpHon/otk8zkNk55Kqnp1nLGPAOosv/jDnHYjdPAZ9juJUStnW52z73M5HY3FlB0fGAC+phN74/Ae7EM5nAHcsqcI/MpbHksWXuHqEZUUtY4DSUSXN1XCkpiqFkvFQ6VC2sLGQlTH/C7jCHVAhtCwl6TAhHUwhlNkBYkLYBIj98QcD3GUYwQU/Ix02hPOTfgAV6ZAxAGnbAbFbxLCMeZxCR0Xr5hnQKyJe4nxYtHYmB1peo4dqfKiuEqjIe2BGcau2oU70UIUHMpK/cJy+L1o9YwARtrzmBQB9DPnQBqjcgChiHyd6YPnilhNCxcT/Iua/NyA3hPTrNHKg8vChnXYcdoDr9C5fXadLAj85sQKvhGRBqEe6TpN2Nheuea2Y8zqdvHHOq8RD+aM42kf8+6a7UG4S02LKs99Ho1B/lXisSx5eJTb1dTir4TrdGJgMLzRAMVI1VH2CdMHSx4vq68qTzJjdhTayjXUgjtgXG0ELphm88jzfRqbRACrndC+xEbYwmjiy/LFv+/wAzcbFjbO3XCSFTT17TJSm7da3vI4xfZMmfc75FJ/mhYN8GTPkmhxGeFSw9T4JR6I/vFEi38sFvCi/bDYPlSRUUHpX6qjx2lrNfba1NaSxiVfx2EJjCNkKWhbdTAZMjtiBUjqd6KnxQHmf6E28SqYtNB6jRYLoH3v081Ow2IdSlzodJT5yBvEp6/S2o+Oor3jB36PrSBq/Gq88UKEH/gL06XVXbw5dLQAAAABJRU5ErkJggg==" />
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="title">
-                                Hệ thống giảm xóc
+        <?php if (have_rows('info_details')): ?>
+            <div class="list_uu_diem">
+                <div class="row">
+                    <?php while (have_rows('info_details')): the_row();
+                        $icon = get_sub_field('icon'); // return url
+                        $tieu_de = get_sub_field('tieu_de');
+                        $mo_ta = get_sub_field('mo_ta');
+                    ?>
+                        <div class="col-lg-6">
+                            <div class="item">
+                                <div class="heading">
+                                    <div class="icon">
+                                        <?php if ($icon): ?>
+                                            <img src="<?php echo $icon; ?>" alt="">
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="title">
+                                        <?php echo $tieu_de; ?>
+                                    </div>
+                                </div>
+                                <div class="desc">
+                                    <?php echo $mo_ta; ?>
+                                </div>
                             </div>
                         </div>
-                        <div class="desc">
-                            Hệ thống giảm chấn thủy lực cho phép người dùng di chuyển êm ái trên nhiều dạng địa hình
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="item">
-                        <div class="heading">
-                            <div class="icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <rect width="20" height="20" fill="url(#pattern0_2035_2751)" />
-                                    <defs>
-                                        <pattern id="pattern0_2035_2751" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0_2035_2751" transform="scale(0.0208333)" />
-                                        </pattern>
-                                        <image id="image0_2035_2751" width="48" height="48" preserveAspectRatio="none" xlink:href="data:image/png;base64,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" />
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="title">
-                                Thân xe
-                            </div>
-                        </div>
-                        <div class="desc">
-                            Trọng tâm xe cân đối, sàn để chân rộng rãi giúp người dùng thoải mái trên những chặng đường dài
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="item">
-                        <div class="heading">
-                            <div class="icon">
-                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <rect x="0.5" width="20" height="20" fill="url(#pattern0_2035_2756)" />
-                                    <defs>
-                                        <pattern id="pattern0_2035_2756" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0_2035_2756" transform="scale(0.0208333)" />
-                                        </pattern>
-                                        <image id="image0_2035_2756" width="48" height="48" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMKADAAQAAAABAAAAMAAAAADbN2wMAAACFUlEQVRoBe2Xy1HDMBCGJdtHDjQQYh8YoIvQAVRAOmBSAZMO6IBQAZSQDjgy4WInFeSSoyW0TJjIiexoo10xzFiHjCytVvv9emQlRF96BXoF/rUCkir6xXJVGl+5p7/qanhReNp2miWdvbjOHGGOse10SwnQORFXJwnAR1meYwP8LMscO8Zljz4DEOxZlj0qpceWQwBAQ1jjqySRs8vBYGq1eVXRAF/L1YsWYuzlfWdUmWq++3TXtNKT62L47O51t6K30CnBK1XfuqdvtspEPjVbjn+hAY67bFqYrfZ6UxRVs7X1C70NuQFM4GrWGi5BBysAUv2TcDgBKm71gZgNIIb6nABR1GcDiKU+F0A09VkAYqrPARBVfXKA2OoDQAY/RGXdde+bF9hB4rioVm9CiruQ+cn+B0x074icR/y8BwKDB3AygFrVU4ySaZKiM0+XfxIAo/4Mq/4JabkrfpoV+Cv1gSj4EEsp5uBo/43btiJgR6U+zBsMoLUYJUlagrO9cnDrQD/sfQNAVkjOgG801OrDvFEBqG4eW7BoABzqR10BDvWjAWzVH9lLT1WPsoWyLHswAedUQdt+2AFAfZOlju1JKevsAJzqgxCsANzqswNwq88KEEN9AAjOhcCJq7TkRy7ToDbWMxAUmedgNMBv+uzpH2UGDyPUAGOMBtjU9f12IvOIJytrqcV8o+oJmcfeUa+AnwLfLWyjC9BjTYcAAAAASUVORK5CYII=" />
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="title">
-                                Tiết kiệm
-                            </div>
-                        </div>
-                        <div class="desc">
-                            Tối ưu chi phí vận hành trong quá trình sử dụng so với các sản phẩm cùng phân khúc trên thị trường
-                        </div>
-                    </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
+
 
         <div class="list_btn">
             <div class="row">
@@ -419,22 +353,29 @@ if (class_exists('WooCommerce')) {
     function custom_html_after_main_image()
     {
     ?>
-        <div class="list_phu_kien">
-            <div class="row">
-                <?php for ($i = 0; $i < 5; $i++) : ?>
-                    <div class="col_custom">
-                        <div class="item" data-mh="item">
-                            <div class="img_wrap">
-                                <img src="https://kenh14cdn.com/thumb_w/660/2017/naruto-headband-1507616035705.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                Hệ thống đèn Full LED & Đèn pha LED projector
+        <?php if (have_rows('phu_kien')): ?>
+            <div class="list_phu_kien">
+                <div class="row">
+                    <?php while (have_rows('phu_kien')): the_row();
+                        $image = get_sub_field('image'); // return url
+                        $mo_ta = get_sub_field('mo_ta');
+                    ?>
+                        <div class="col_custom">
+                            <div class="item" data-mh="item">
+                                <div class="img_wrap">
+                                    <?php if ($image): ?>
+                                        <img src="<?php echo $image; ?>" alt="">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="content">
+                                    <?php echo $mo_ta; ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php endfor; ?>
+                    <?php endwhile; ?>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
 <?php
     }
 
