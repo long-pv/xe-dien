@@ -9,6 +9,7 @@
 		margin-top: 0px;
 		margin-bottom: 48px;
 	}
+
 	// Start Archive Post
 	.post__item {
 		border-radius: 4px;
@@ -39,11 +40,9 @@
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: linear-gradient(
-					to bottom,
-					rgba(255, 255, 255, 0) 60%,
-					rgba(255, 255, 255, 1) 100%
-				);
+				background: linear-gradient(to bottom,
+						rgba(255, 255, 255, 0) 60%,
+						rgba(255, 255, 255, 1) 100%);
 			}
 		}
 
@@ -117,10 +116,12 @@
 					gap: 8px;
 
 					// Icon
-					svg {
+					svg,
+					img {
 						width: 24px;
 						height: 24px;
 						min-width: 24px; // Sửa lỗi kích thước icon bị thu nhỏ
+						flex-shrink: 0;
 					}
 
 					.post__category--name {
@@ -145,11 +146,12 @@
 }
 
 #vinfast-2025.detail__section {
+
 	// 1. Heading
 	.detail__heading {
 		font-size: 56px;
-		font-weight: 600;
-		line-height: 64px;
+		font-weight: 600 !important;
+		line-height: 64px !important;
 		//
 		color: #000000;
 		//
@@ -172,7 +174,7 @@
 			.detail__category {
 				font-size: 16px;
 				font-weight: 600;
-				//
+				text-decoration: none !important;
 				color: #000000;
 			}
 
@@ -191,11 +193,12 @@
 			//
 			color: rgba(0, 0, 0, 0.6);
 
-			span {
+			span,
+			a {
 				font-size: 16px;
 				font-weight: 600;
-				//
 				color: #000000;
+				text-decoration: none !important;
 			}
 		}
 	}

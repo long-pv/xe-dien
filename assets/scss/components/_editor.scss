@@ -24,7 +24,7 @@
         text-decoration: none;
         transition: all 0.5s;
         white-space: inherit;
-        color: $primary !important;
+        color: #2200FF !important;
 
         &:hover {
             text-decoration: underline;
@@ -58,9 +58,11 @@
         }
     }
 
-    .wp-caption-text {
+    .wp-caption-text,
+    .wp-element-caption {
         font-size: 12px;
         font-style: italic;
+        text-align: center;
     }
 
     blockquote {
