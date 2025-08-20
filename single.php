@@ -53,7 +53,6 @@ get_header();
             </div>
         </div>
 
-        <!--  -->
         <!-- New News -->
         <div class="news__list">
             <div class="news__inner">
@@ -136,6 +135,52 @@ get_header();
 
         </div>
     </div>
+
+    <?php
+    $contact_form = get_field('contact_form', 'option');
+    if (!empty($contact_form) && is_array($contact_form)) :
+        $title = $contact_form['title'] ?? '';
+        $description = $contact_form['description'] ?? '';
+        $form_id = $contact_form['form'] ?? '';
+        $image = $contact_form['image'] ?? '';
+    ?>
+        <div class="home_form_contact">
+            <div class="row gx-0">
+                <div class="col-lg-6">
+                    <div class="img_wrap">
+                        <?php if ($image) : ?>
+                            <img src="<?php echo $image; ?>" alt="Contact form">
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="inner">
+                        <div class="content">
+                            <div class="logo">
+                                <?php $logo_url = get_template_directory_uri() . '/assets/images/logo.svg'; ?>
+                                <img src="<?php echo $logo_url; ?>" alt="logo">
+                            </div>
+
+                            <?php if ($title) : ?>
+                                <h2 class="title"><?php echo $title; ?></h2>
+                            <?php endif; ?>
+
+                            <?php if ($description) : ?>
+                                <div class="desc"><?php echo $description; ?></div>
+                            <?php endif; ?>
+
+                            <?php
+                            if ($form_id) {
+                                echo do_shortcode('[contact-form-7 id="' . $form_id . '"]');
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>
 <?php
 get_footer();
