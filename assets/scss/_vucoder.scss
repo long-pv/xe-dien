@@ -1,0 +1,247 @@
+#vinfast-2025 {
+	.blog__heading {
+		font-size: 44px;
+		font-weight: 600;
+		line-height: 48px;
+		//
+		color: #000000;
+		//
+		margin-top: 0px;
+		margin-bottom: 48px;
+	}
+	// Start Archive Post
+	.post__item {
+		border-radius: 4px;
+		background-color: #fdfdff;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+
+		// 1. Thumbnail
+		.post__thumbnail {
+			position: relative;
+			display: block;
+			height: 0px;
+			padding-bottom: 64.3%;
+			overflow: hidden;
+
+			// Image
+			img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			// Overlay gradient
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(
+					to bottom,
+					rgba(255, 255, 255, 0) 60%,
+					rgba(255, 255, 255, 1) 100%
+				);
+			}
+		}
+
+		// 2. Content
+		.post__content {
+			//
+			padding: 24px 20px;
+
+			// Title
+			.post__title {
+				text-decoration: none;
+				//
+				margin-bottom: 8px;
+
+				//
+				h3 {
+					// Font
+					font-size: 20px;
+					font-weight: 600;
+					line-height: 28px;
+					// Color
+					color: #000000;
+					margin: 0px;
+
+					// Event
+					// -- Hover
+					&:hover {
+						// color: #ae1e18;
+						text-decoration: underline;
+					}
+
+					// Line
+					display: -webkit-box;
+					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 2;
+					/* Số dòng bạn muốn hiển thị */
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+
+			// Excerpt
+			.post__desc {
+				// Font
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 24px;
+				// Color
+				color: rgba(0, 0, 0, 0.8);
+				// Line
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				/* Số dòng bạn muốn hiển thị */
+				overflow: hidden;
+				text-overflow: ellipsis;
+				//
+				margin-bottom: 16px;
+			}
+
+			// 4. Info
+			.post__info {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+
+				//
+				.post__category {
+					display: flex;
+					align-items: center;
+					gap: 8px;
+
+					// Icon
+					svg {
+						width: 24px;
+						height: 24px;
+						min-width: 24px; // Sửa lỗi kích thước icon bị thu nhỏ
+					}
+
+					.post__category--name {
+						font-size: 14px;
+						font-weight: 600;
+						//
+						color: rgba(0, 0, 0, 0.8);
+						text-decoration: none;
+					}
+				}
+
+				//
+				.post__date {
+					font-size: 14px;
+					font-weight: 400;
+					//
+					color: rgba(0, 0, 0, 0.8);
+				}
+			}
+		}
+	}
+}
+
+#vinfast-2025.detail__section {
+	// 1. Heading
+	.detail__heading {
+		font-size: 56px;
+		font-weight: 600;
+		line-height: 64px;
+		//
+		color: #000000;
+		//
+		margin-top: 0px;
+		margin-bottom: 24px;
+	}
+
+	// 2. Info
+	.detail__info {
+		display: flex;
+		gap: 24px;
+		//
+		margin-bottom: 24px;
+
+		// Meta
+		.detail__meta {
+			display: flex;
+			gap: 8px;
+
+			.detail__category {
+				font-size: 16px;
+				font-weight: 600;
+				//
+				color: #000000;
+			}
+
+			.detail__date {
+				font-size: 16px;
+				font-weight: 400;
+				//
+				color: rgba(0, 0, 0, 0.6);
+			}
+		}
+
+		// Topic
+		.detail__topic {
+			font-size: 16px;
+			font-weight: 400;
+			//
+			color: rgba(0, 0, 0, 0.6);
+
+			span {
+				font-size: 16px;
+				font-weight: 600;
+				//
+				color: #000000;
+			}
+		}
+	}
+
+	.news__list {
+		.news__inner {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 8px;
+			//
+			margin-bottom: 48px;
+
+			.news__heading {
+				font-size: 32px;
+				font-weight: 700;
+				line-height: 40px;
+				//
+				color: #000000;
+				//
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+
+			.news__link {
+				display: flex;
+				justify-content: end;
+				align-items: center;
+				gap: 8px;
+				//
+				font-size: 20px;
+				font-weight: 700;
+				text-decoration: none;
+				//
+				color: #3e6ae1;
+
+				svg {
+					width: 24px;
+					height: 24px;
+					min-width: 24px;
+				}
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
