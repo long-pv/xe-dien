@@ -63,6 +63,9 @@ function xe_dien_scripts()
     // matchHeight
     wp_enqueue_script('xe_dien-script-matchHeight', get_template_directory_uri() . '/assets/inc/matchHeight/jquery.matchHeight.js', array('jquery'), _S_VERSION, true);
 
+    // validate
+    wp_enqueue_script('xe_dien-script-validate', get_template_directory_uri() . '/assets/inc/validate/validate.js', array('jquery'), _S_VERSION, true);
+
     // slick
     wp_enqueue_style('xe_dien-style-slick-theme', get_template_directory_uri() . '/assets/inc/slick/slick-theme.css', array(), _S_VERSION);
     wp_enqueue_style('xe_dien-style-slick', get_template_directory_uri() . '/assets/inc/slick/slick.css', array(), _S_VERSION);
@@ -571,4 +574,67 @@ function generate_page_parent($parent_id, $delimiter)
     }
 
     return rtrim($output);
+}
+
+// Xử lý AJAX tạo user
+add_action('wp_ajax_nopriv_register_user', 'handle_register_user');
+add_action('wp_ajax_register_user', 'handle_register_user');
+function handle_register_user()
+{
+    $name     = sanitize_text_field($_POST['name']);
+    $email    = sanitize_email($_POST['email']);
+    $password = sanitize_text_field($_POST['password']);
+
+    if (username_exists($email) || email_exists($email)) {
+        wp_send_json_error(['message' => 'Email đã tồn tại trong hệ thống.']);
+    }
+
+    $user_id = wp_create_user($email, $password, $email);
+    if (is_wp_error($user_id)) {
+        wp_send_json_error(['message' => $user_id->get_error_message()]);
+    }
+
+    // Cập nhật tên hiển thị
+    wp_update_user([
+        'ID'           => $user_id,
+        'display_name' => $name,
+        'first_name'   => $name,
+    ]);
+
+    // Auto login
+    wp_set_current_user($user_id);
+    wp_set_auth_cookie($user_id);
+
+    // Trả về success kèm đường dẫn trang chủ
+    wp_send_json_success([
+        'message' => 'Tạo tài khoản thành công!',
+        'redirect' => home_url() // hoặc home_url('/trang-chu/') nếu có slug riêng
+    ]);
+}
+
+
+// Hook AJAX login
+add_action('wp_ajax_nopriv_login_user', 'handle_login_user');
+add_action('wp_ajax_login_user', 'handle_login_user');
+
+function handle_login_user()
+{
+    $email    = sanitize_email($_POST['email']);
+    $password = sanitize_text_field($_POST['password']);
+    $remember = isset($_POST['remember']) && $_POST['remember'] == 1;
+
+    $user = wp_authenticate($email, $password);
+
+    if (is_wp_error($user)) {
+        wp_send_json_error(['message' => 'Email hoặc mật khẩu không đúng.']);
+    }
+
+    // Đăng nhập user
+    wp_set_current_user($user->ID);
+    wp_set_auth_cookie($user->ID, $remember);
+
+    wp_send_json_success([
+        'message'  => 'Đăng nhập thành công!',
+        'redirect' => home_url('/'), // redirect về trang chủ
+    ]);
 }

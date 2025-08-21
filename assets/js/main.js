@@ -170,6 +170,183 @@
 		}
 	});
 
+	// Rule custom password mạnh
+	$.validator.addMethod(
+		"strongPassword",
+		function (value, element) {
+			return (
+				this.optional(element) ||
+				(/[A-Z]/.test(value) && // ít nhất 1 chữ hoa
+					/[a-z]/.test(value) && // ít nhất 1 chữ thường
+					/\d/.test(value))
+			); // ít nhất 1 số
+		},
+		"Mật khẩu phải có chữ hoa, chữ thường và ít nhất 1 số"
+	);
+
+	// Validate form
+	// Custom regex for email validation
+	$.validator.addMethod(
+		"customEmail",
+		function (value, element) {
+			var regex = /^[a-zA-Z0-9._%+-]+(?:\.[a-zA-Z0-9._%+-]+)*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+			return this.optional(element) || regex.test(value);
+		},
+		"Vui lòng nhập địa chỉ email hợp lệ"
+	);
+
+	// Custom rule cho mật khẩu mạnh
+	$.validator.addMethod(
+		"strongPassword",
+		function (value, element) {
+			return (
+				this.optional(element) ||
+				(/[A-Z]/.test(value) && // ít nhất 1 chữ hoa
+					/[a-z]/.test(value) && // ít nhất 1 chữ thường
+					/\d/.test(value)) // ít nhất 1 số
+			);
+		},
+		"Mật khẩu phải có chữ hoa, chữ thường và ít nhất 1 số"
+	);
+
+	// Validate form
+	$(".register-form").validate({
+		rules: {
+			name: {
+				required: true,
+				minlength: 2,
+			},
+			email: {
+				required: true,
+				customEmail: true, // dùng custom rule
+			},
+			password: {
+				required: true,
+				minlength: 8,
+				strongPassword: true,
+			},
+			confirm_password: {
+				required: true,
+				equalTo: "input[name='password']",
+			},
+		},
+		messages: {
+			name: {
+				required: "Vui lòng nhập họ tên",
+				minlength: "Tên phải có ít nhất 2 ký tự",
+			},
+			email: {
+				required: "Vui lòng nhập email",
+				customEmail: "Email không hợp lệ",
+			},
+			password: {
+				required: "Vui lòng nhập mật khẩu",
+				minlength: "Mật khẩu ít nhất 8 ký tự",
+			},
+			confirm_password: {
+				required: "Vui lòng nhập lại mật khẩu",
+				equalTo: "Mật khẩu nhập lại không khớp",
+			},
+		},
+		errorPlacement: function (error, element) {
+			error.addClass("text-danger");
+			error.insertAfter(element);
+		},
+		submitHandler: function (form) {
+			let formData = {
+				action: "register_user",
+				name: $("input[name='name']").val(),
+				email: $("input[name='email']").val(),
+				password: $("input[name='password']").val(),
+			};
+
+			$.ajax({
+				url: custom_ajax.ajax_url,
+				type: "POST",
+				data: formData,
+				beforeSend: function () {
+					$(".btn-primary").prop("disabled", true).text("Đang xử lý...");
+				},
+				success: function (response) {
+					if (response.success) {
+						alert(response.data.message);
+						window.location.href = response.data.redirect; // redirect do PHP trả về
+					} else {
+						alert(response.data.message);
+					}
+				},
+				error: function () {
+					alert("Có lỗi xảy ra, vui lòng thử lại.");
+				},
+				complete: function () {
+					$(".btn-primary").prop("disabled", false).text("Đăng ký tài khoản");
+				},
+			});
+
+			return false;
+		},
+	});
+
+	$(".login-form").validate({
+		rules: {
+			email: {
+				required: true,
+				customEmail: true,
+			},
+			password: {
+				required: true,
+				minlength: 8,
+			},
+		},
+		messages: {
+			email: {
+				required: "Vui lòng nhập email",
+				customEmail: "Email không hợp lệ",
+			},
+			password: {
+				required: "Vui lòng nhập mật khẩu",
+				minlength: "Mật khẩu ít nhất 8 ký tự",
+			},
+		},
+		errorPlacement: function (error, element) {
+			error.addClass("text-danger");
+			error.insertAfter(element);
+		},
+		submitHandler: function (form) {
+			let formData = {
+				action: "login_user",
+				email: $("input[name='email']").val(),
+				password: $("input[name='password']").val(),
+				remember: $("input[name='remember']").is(":checked") ? 1 : 0,
+			};
+
+			$.ajax({
+				url: custom_ajax.ajax_url, // đã wp_localize_script
+				type: "POST",
+				data: formData,
+				beforeSend: function () {
+					$(".btn-primary").prop("disabled", true).text("Đang xử lý...");
+				},
+				success: function (response) {
+					if (response.success) {
+						alert("Đăng nhập thành công!");
+						window.location.href = response.data.redirect;
+					} else {
+						alert(response.data.message);
+					}
+				},
+				error: function () {
+					alert("Có lỗi xảy ra, vui lòng thử lại.");
+				},
+				complete: function () {
+					$(".btn-primary").prop("disabled", false).text("Đăng nhập");
+				},
+			});
+
+			return false;
+		},
+	});
+
 	// ... longpv
 	//
 	//

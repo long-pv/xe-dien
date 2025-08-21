@@ -16,7 +16,7 @@
 get_header();
 ?>
 <?php
-if (! is_cart() || ! is_checkout()) :
+if (is_cart() || is_checkout()) :
 ?>
 	<div class="brc_woo">
 		<div class="container">
