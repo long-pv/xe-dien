@@ -38,7 +38,7 @@ if (! is_cart() || ! is_checkout()) :
 <?php endif; ?>
 
 <div class="container">
-	<div class="py-pc">
+	<div class="py-mb py-lg-pc">
 		<?php the_content(); ?>
 	</div>
 </div>

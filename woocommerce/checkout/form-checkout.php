@@ -36,9 +36,9 @@ if (! $checkout->is_registration_enabled() && $checkout->is_registration_require
 
 		<?php do_action('woocommerce_checkout_before_customer_details'); ?>
 
-		<div class="row">
+		<div class="row gy-4">
 			<!-- Cột trái: Thông tin khách hàng -->
-			<div class="col-lg-6 mb-4">
+			<div class="col-lg-6">
 				<div id="customer_details">
 					<div class="mb-4">
 						<div class="title">

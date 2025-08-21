@@ -108,6 +108,7 @@
 				display: flex;
 				align-items: center;
 				gap: 8px;
+				flex-wrap: wrap;
 
 				//
 				.post__category {
@@ -152,24 +153,29 @@
 		font-size: 56px;
 		font-weight: 600 !important;
 		line-height: 64px !important;
-		//
 		color: #000000;
-		//
 		margin-top: 0px;
 		margin-bottom: 24px;
+
+		@include media-breakpoint-down(md) {
+			font-size: 40px;
+			line-height: 1.5 !important;
+		}
 	}
 
 	// 2. Info
 	.detail__info {
 		display: flex;
 		gap: 24px;
-		//
 		margin-bottom: 24px;
+		flex-wrap: wrap;
+
 
 		// Meta
 		.detail__meta {
 			display: flex;
 			gap: 8px;
+			flex-wrap: wrap;
 
 			.detail__category {
 				font-size: 16px;
@@ -204,13 +210,20 @@
 	}
 
 	.news__list {
+		padding: 60px 0px;
+		border-top: 1px solid #E6E6E6;
+
 		.news__inner {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			gap: 8px;
-			//
 			margin-bottom: 48px;
+
+			@include media-breakpoint-down(md) {
+				flex-direction: column;
+				align-items: flex-start;
+			}
 
 			.news__heading {
 				font-size: 32px;

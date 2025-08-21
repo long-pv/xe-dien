@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single posts
  *
@@ -9,10 +10,10 @@
 
 get_header();
 ?>
-        
+
 <div id="vinfast-2025" class="detail__section">
-    <div class="container py-pc">
-       <div class="row justify-content-center">
+    <div class="container py-mb py-lg-pc">
+        <div class="row justify-content-center">
             <!-- Main -->
             <div class="col-lg-10">
                 <!-- Heading -->
@@ -23,24 +24,24 @@ get_header();
                 <!-- Info -->
                 <div class="detail__info">
                     <div class="detail__meta">
-                        <a class="detail__category" href="<?php echo home_url( '/' ); ?>">VinFast Đức Nghĩa</a>
+                        <a class="detail__category" href="<?php echo home_url('/'); ?>">VinFast Đức Nghĩa</a>
 
                         <div class="detail__date">
-                            <?php echo get_the_date( 'l, j/n/Y, H:i' ); ?>
+                            <?php echo get_the_date('l, j/n/Y, H:i'); ?>
                         </div>
                     </div>
 
                     <div class="detail__topic">
                         <?php
                         $categories = get_the_category();
-                        if ( ! empty( $categories ) ) {
+                        if (! empty($categories)) {
                             echo 'Chủ đề: ';
                             $cats = [];
-                            foreach ( $categories as $cat ) {
-                                $url = get_category_link( $cat->term_id );
+                            foreach ($categories as $cat) {
+                                $url = get_category_link($cat->term_id);
                                 $cats[] = '<a href="' . $url . '"><span>' . $cat->name . '</span></a>';
                             }
-                            echo implode( ', ', $cats );
+                            echo implode(', ', $cats);
                         }
                         ?>
                     </div>
@@ -52,9 +53,11 @@ get_header();
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- New News -->
-        <div class="news__list">
+    <!-- New News -->
+    <div class="news__list">
+        <div class="container">
             <div class="news__inner">
                 <h2 class="news__heading">
                     Tin Tức Mới Nhất
@@ -71,26 +74,26 @@ get_header();
             </div>
 
             <!-- Content Post -->
-            <div class="row">
+            <div class="row gy-4">
                 <?php
                 $args = array(
                     'post_type'      => 'post',
                     'posts_per_page' => 3, // chỉ lấy 1 bài mới nhất
-                    'post__not_in'   => array( get_the_ID() ), // loại trừ bài hiện tại
+                    'post__not_in'   => array(get_the_ID()), // loại trừ bài hiện tại
                 );
-                $query = new WP_Query( $args );
-                if ( $query->have_posts() ) :
-                    while ( $query->have_posts() ) : $query->the_post();
-                        ?>
-                        <div class="col-lg-4">
+                $query = new WP_Query($args);
+                if ($query->have_posts()) :
+                    while ($query->have_posts()) : $query->the_post();
+                ?>
+                        <div class="col-md-6 col-lg-4">
                             <article class="post__item" data-mh="post_item">
                                 <!-- Thumbnail Post -->
                                 <a class="d-block post__thumbnail" href="<?php the_permalink(); ?>">
-                                    <?php if ( has_post_thumbnail() ) : ?>
-                                        <?php the_post_thumbnail( 'full', array(
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <?php the_post_thumbnail('full', array(
                                             'fetchpriority' => 'high',
                                             'decoding'      => 'async',
-                                        ) ); ?>
+                                        )); ?>
                                     <?php endif; ?>
                                 </a>
 
@@ -103,7 +106,7 @@ get_header();
 
                                     <!-- Excerpt Post -->
                                     <p class="post__desc line-3">
-                                        <?php echo wp_trim_words( get_the_excerpt(), 40, '...' ); ?>
+                                        <?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?>
                                     </p>
 
                                     <!-- Info Post -->
@@ -113,26 +116,25 @@ get_header();
                                             <!-- Icon -->
                                             <img src="<?php echo get_template_directory_uri() . '/assets/images/icon_1.svg'; ?>" alt="icon 1">
                                             <!-- Link Author -->
-                                            <a href="<?php echo home_url( '/' ); ?>" class="post__category--name">
+                                            <a href="<?php echo home_url('/'); ?>" class="post__category--name">
                                                 VinFast Đức Nghĩa
                                             </a>
                                         </div>
 
                                         <!-- Date -->
                                         <div class="post__date">
-                                            <?php echo get_the_date( 'l, j/n/Y, H:i' ); ?>
+                                            <?php echo get_the_date('l, j/n/Y, H:i'); ?>
                                         </div>
                                     </div>
                                 </div>
                             </article>
                         </div>
-                        <?php
+                <?php
                     endwhile;
                     wp_reset_postdata();
                 endif;
                 ?>
             </div>
-
         </div>
     </div>
 
