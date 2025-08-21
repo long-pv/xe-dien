@@ -23,13 +23,13 @@
             </a>
         </div>
         <div class="footer_menu">
-            <div class="row">
+            <div class="row gy-4">
                 <?php
                 $column_1_title = get_field('column_1_title', 'option') ?? "";
                 $column_1_content = get_field('column_1_content', 'option') ?? "";
                 if ($column_1_title && $column_1_content):
                 ?>
-                    <div class="col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="item">
                             <div class="title">
                                 <?php echo $column_1_title; ?>
@@ -45,7 +45,7 @@
                 $column_2_content = get_field('column_2_content', 'option') ?? "";
                 if ($column_2_title && $column_2_content):
                 ?>
-                    <div class="col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="item">
                             <div class="title">
                                 <?php echo $column_2_title; ?>
@@ -61,7 +61,7 @@
                 $column_3_content = get_field('column_3_content', 'option') ?? "";
                 if ($column_3_title && $column_3_content):
                 ?>
-                    <div class="col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <div class="item">
                             <div class="title">
                                 <?php echo $column_3_title; ?>
@@ -74,7 +74,7 @@
                 <?php endif; ?>
 
 
-                <div class="col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                     <?php
                     $column_4_title = get_field('column_4_title', 'option') ?? "";
                     $column_4_content = get_field('column_4_content', 'option') ?? "";
@@ -114,7 +114,7 @@
 
     <div class="bottom">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row gy-4 align-items-center">
                 <div class="col-lg-6">
                     <?php
                     $address = get_field('address', 'option') ?? '';
@@ -135,7 +135,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="col-lg-6">
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-lg-end">
                         <a href="#" class="icon">
                             <img src="<?php echo get_template_directory_uri() . '/assets/images/Frame_2.png'; ?>" alt="">
                         </a>

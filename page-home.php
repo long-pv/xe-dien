@@ -168,7 +168,7 @@ if (!empty($about_us) && is_array($about_us)) :
 ?>
 	<div class="home_about_us">
 		<div class="container">
-			<div class="row">
+			<div class="row gy-3">
 				<?php foreach ($about_us as $item) :
 					$title = $item['title'] ?? '';
 					$describe = $item['describe'] ?? '';
@@ -177,8 +177,8 @@ if (!empty($about_us) && is_array($about_us)) :
 				?>
 					<div class="col-lg-6">
 						<div class="item_box">
-							<div class="row align-items-center h-100">
-								<div class="col-7">
+							<div class="row gy-3 align-items-center h-100">
+								<div class="col-12 col-lg-7">
 									<div class="content">
 										<?php if ($title) : ?>
 											<h3 class="title"><?php echo $title; ?></h3>
@@ -196,7 +196,7 @@ if (!empty($about_us) && is_array($about_us)) :
 									</div>
 								</div>
 
-								<div class="col-5">
+								<div class="col-12 col-lg-5">
 									<?php if ($image) : ?>
 										<img src="<?php echo $image; ?>" alt="<?php echo $title; ?>">
 									<?php endif; ?>
@@ -341,7 +341,7 @@ if (!empty($more_info) && is_array($more_info)) :
 ?>
 	<div class="home_more_info">
 		<div class="container">
-			<div class="row">
+			<div class="row gy-4">
 				<?php foreach ($more_info as $item) :
 					$title = $item['title'] ?? '';
 					$url = $item['url'] ?? '';

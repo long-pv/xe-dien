@@ -65,6 +65,17 @@
 		slidesToScroll: 1,
 		centerMode: true,
 		centerPadding: "25%",
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					centerMode: false,
+					centerPadding: "0",
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
 	});
 
 	$(".tab_product_slider").slick({
@@ -87,13 +98,16 @@
 	// Khi click vào .menu_san_pham thì toggle menu_products
 	$(".menu_san_pham").on("click", function (e) {
 		e.stopPropagation(); // chặn click lan ra ngoài
-		$(".menu_products")
-			.stop(true, true)
-			.slideToggle(100, function () {
-				// Khi animation xong thì refresh slick
-				$(".menu_products .slick-slider").slick("setPosition");
-				$(".menu_products .slick-slider .product_loop_item").matchHeight({ byRow: true });
-			});
+
+		if ($(window).width() > 1200) {
+			$(".menu_products")
+				.stop(true, true)
+				.slideToggle(100, function () {
+					// Khi animation xong thì refresh slick
+					$(".menu_products .slick-slider").slick("setPosition");
+					$(".menu_products .slick-slider .product_loop_item").matchHeight({ byRow: true });
+				});
+		}
 	});
 
 	// Khi click ra ngoài thì đóng menu_products

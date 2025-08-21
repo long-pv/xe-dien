@@ -142,6 +142,11 @@ body.xemer_woo_theme {
                 font-weight: 600;
                 color: #868686;
                 margin-right: 8px;
+
+                @include media-breakpoint-down(md) {
+                    width: 100%;
+                    margin-top: 0px;
+                }
             }
 
             button[name="apply_coupon"] {
@@ -153,6 +158,11 @@ body.xemer_woo_theme {
                 color: #3E6AE1;
                 font-size: 16px;
                 font-weight: 600;
+
+                @include media-breakpoint-down(md) {
+                    width: 100%;
+                    margin-top: 8px;
+                }
             }
         }
     }
@@ -751,11 +761,16 @@ body.xemer_woo_theme {
             position: relative;
 
             .breadcrumbs {
-                position: absolute;
-                margin-bottom: 0px;
-                left: 60px;
-                top: 38px;
-                z-index: 99;
+                margin-top: 24px;
+
+                @include media-breakpoint-up(lg) {
+                    position: absolute;
+                    left: 60px;
+                    top: 38px;
+                    margin-bottom: 0px;
+                    margin-top: 0px;
+                    z-index: 99;
+                }
             }
         }
 
@@ -766,7 +781,15 @@ body.xemer_woo_theme {
 
             .col_custom {
                 flex: 0 0 auto;
-                width: 20%;
+                width: 50%;
+
+                @include media-breakpoint-up(md) {
+                    width: 33.333%;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    width: 20%;
+                }
             }
 
             .row {
@@ -804,10 +827,14 @@ body.xemer_woo_theme {
         }
 
         .entry-summary {
-            padding: 36px 24px;
+            padding: 24px 16px;
             background-color: #FBFBFB;
             margin-bottom: 0px !important;
             height: 100%;
+
+            @include media-breakpoint-up(lg) {
+                padding: 36px 24px;
+            }
 
             .product_title {
                 font-size: 32px;

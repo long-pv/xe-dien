@@ -305,7 +305,7 @@ if (class_exists('WooCommerce')) {
                         $tieu_de = get_sub_field('tieu_de');
                         $mo_ta = get_sub_field('mo_ta');
                     ?>
-                        <div class="col-lg-6">
+                        <div class="col-md-6">
                             <div class="item">
                                 <div class="heading">
                                     <div class="icon">
@@ -329,7 +329,7 @@ if (class_exists('WooCommerce')) {
 
 
         <div class="list_btn">
-            <div class="row">
+            <div class="row gy-3">
                 <div class="col-lg-6">
                     <a href="#" class="btn_1">
                         Nhận tư vấn
