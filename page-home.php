@@ -497,49 +497,5 @@ if (!empty($contact_form) && is_array($contact_form)) :
 */
 ?>
 
-<script>
-	jQuery(document).ready(function($) {
-		// Ẩn label khi focus
-		$('.form_control, .form_textarea').on('focus', function() {
-			$(this).closest('.form_group_box').find('.form_label').hide();
-		});
-
-		// Hiện lại label khi blur nếu input rỗng
-		$('.form_control, .form_textarea').on('blur', function() {
-			if ($(this).val().trim() === '') {
-				$(this).closest('.form_group_box').find('.form_label').show();
-			}
-		});
-
-		// Xử lý click tab
-		$('.tab_title').click(function() {
-			var tabId = $(this).data('tab');
-
-			// Bỏ active tab cũ và thêm active tab mới
-			$('.tab_title').removeClass('active');
-			$(this).addClass('active');
-
-			// Bỏ active content cũ và thêm active content mới
-			$('.tab_content').removeClass('active');
-			$('#' + tabId).addClass('active');
-
-			// Bỏ chọn tất cả checkbox khi đổi tab
-			$('.tab_content input[type="checkbox"]').prop('checked', false);
-
-			// Xóa giá trị input hidden
-			$('input[name="selected_product"]').val('');
-		});
-
-		// Khi chọn checkbox, cập nhật danh sách vào input ẩn
-		$(document).on('change', '.tab_content input[type="checkbox"]', function() {
-			let selected = [];
-			$('.tab_content input[type="checkbox"]:checked').each(function() {
-				selected.push($(this).val());
-			});
-			$('input[name="selected_product"]').val(selected.join(',')).trigger('change');
-		});
-	});
-</script>
-
 <?php
 get_footer();

@@ -638,3 +638,16 @@ function handle_login_user()
         'redirect' => home_url('/'), // redirect về trang chủ
     ]);
 }
+
+function limit_posts_on_archive($query)
+{
+    // Chỉ áp dụng ở trang main query, không chạy trong admin
+    if (! is_admin() && $query->is_main_query()) {
+
+        // Nếu là trang archive bất kỳ
+        if ($query->is_archive()) {
+            $query->set('posts_per_page', 9);
+        }
+    }
+}
+add_action('pre_get_posts', 'limit_posts_on_archive');

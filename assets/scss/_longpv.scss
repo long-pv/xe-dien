@@ -1085,3 +1085,16 @@
         }
     }
 }
+
+.archive_post {
+    .title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 24px;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 32px;
+            margin-bottom: 48px;
+        }
+    }
+}

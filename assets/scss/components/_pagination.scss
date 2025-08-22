@@ -10,6 +10,11 @@
         color: $primary !important;
         text-decoration: none;
         font-size: 14px;
+        height: 30px;
+        width: 30px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
 
         &.current {
             background: $primary;
@@ -20,6 +25,7 @@
         &.next,
         &.prev {
             padding: 0;
+            display: none !important;
 
             &:hover {
                 background: transparent;
