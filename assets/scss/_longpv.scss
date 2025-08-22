@@ -41,6 +41,20 @@
         padding-left: 32px;
         color: #0A0A0A;
         cursor: pointer;
+        position: relative;
+
+        .accountCTA {
+            position: absolute;
+            top: 100%;
+            right: 0px;
+            display: none;
+        }
+
+        &:hover {
+            .accountCTA {
+                display: block;
+            }
+        }
     }
 
     .cart_icon {
@@ -1097,4 +1111,53 @@
             margin-bottom: 48px;
         }
     }
+}
+
+/* ===== Account CTA (Card) ===== */
+.accountCTA {
+    padding: 20px;
+    width: 370px;
+    background: #FAFAFA;
+    border: 1px solid #E1E1E1;
+    border-radius: 8px;
+    z-index: 9;
+}
+
+.accountCTA_card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.accountCTA_title {
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+    text-align: center;
+}
+
+.accountCTA_button {
+    padding: 12px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3E6AE1 !important;
+    border-radius: 8px;
+    color: #fff !important;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none !important;
+}
+
+.accountCTA_footnote {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+}
+
+.accountCTA_link {
+    color: #3E6AE1 !important;
+    text-decoration: underline !important;
 }

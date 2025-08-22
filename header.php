@@ -205,6 +205,26 @@
 
 							<div class="my_account">
 								Tài khoản
+
+								<!-- Account CTA Card -->
+								<div class="accountCTA" role="dialog" aria-labelledby="accountCTA_title" aria-modal="true">
+									<div class="accountCTA_card">
+										<div class="accountCTA_title">
+											Đăng ký nhận tư vấn ngay! Ưu đãi mỗi ngày tại Vinfast Đức Nghĩa
+										</div>
+
+										<a href="#" class="accountCTA_button">
+											Đăng nhập
+										</a>
+
+										<div class="accountCTA_footnote">
+											<span class="accountCTA_text">
+												Bạn là khách hàng mới?
+											</span>
+											<a href="#" class="accountCTA_link">Đăng ký ngay</a>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
