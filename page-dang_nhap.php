@@ -24,36 +24,48 @@ get_header();
 ?>
 
 <div class="container">
-	<div class="auth-wrapper">
-		<div class="auth-box">
-			<h2 class="auth-title">Đăng nhập</h2>
+	<div class="auth">
+		<div class="auth_box">
+			<h2 class="auth_title">Đăng nhập</h2>
 
-			<form class="login-form" novalidate>
-				<div class="form-group">
-					<label for="login-email">Email <span>*</span></label>
-					<input type="email" name="email" id="login-email" class="form-control" placeholder="Nhập email của bạn" required>
+			<form class="auth_form" novalidate>
+				<div class="auth_form-group">
+					<label for="login-email" class="auth_label">Email <span>*</span></label>
+					<input
+						type="email"
+						name="email"
+						id="login-email"
+						class="auth_input"
+						placeholder="Nhập email của bạn"
+						required>
 				</div>
 
-				<div class="form-group input-password">
-					<label for="login-password">Mật khẩu <span>*</span></label>
-					<input type="password" name="password" id="login-password" class="form-control" placeholder="Nhập mật khẩu" required>
-					<span class="toggle-password">👁</span>
+				<div class="auth_form-group auth_form-group_password">
+					<label for="login-password" class="auth_label">Mật khẩu <span>*</span></label>
+					<input
+						type="password"
+						name="password"
+						id="login-password"
+						class="auth_input"
+						placeholder="Nhập mật khẩu"
+						required>
+					<span class="auth_toggle-password">👁</span>
 				</div>
 
-				<div class="form-group d-flex justify-content-between align-items-center" style="margin-bottom: 20px;">
-					<div>
-						<input type="checkbox" id="remember" name="remember">
-						<label for="remember">Ghi nhớ tài khoản</label>
+				<div class="auth_form-group auth_form-group_options">
+					<div class="auth_remember">
+						<input type="checkbox" id="remember" name="remember" class="auth_checkbox">
+						<label for="remember" class="auth_checkbox-label">Ghi nhớ tài khoản</label>
 					</div>
-					<a href="/forgot-password" class="forgot-link">Quên mật khẩu?</a>
+					<a href="/forgot-password" class="auth_forgot-link">Quên mật khẩu?</a>
 				</div>
 
-				<button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+				<button type="submit" class="auth_btn auth_btn-primary">Đăng nhập</button>
 			</form>
 
-			<div class="auth-footer">
-				<p>Chưa có tài khoản?</p>
-				<a href="/register" class="btn btn-outline w-100">Đăng ký tài khoản</a>
+			<div class="auth_footer">
+				<p class="auth_footer-text">Chưa có tài khoản?</p>
+				<a href="/register" class="auth_btn auth_btn-outline">Đăng ký tài khoản</a>
 			</div>
 		</div>
 	</div>

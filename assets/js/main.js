@@ -210,7 +210,7 @@
 	);
 
 	// Validate form
-	$(".register-form").validate({
+	$(".register_form").validate({
 		rules: {
 			name: {
 				required: true,
@@ -218,12 +218,12 @@
 			},
 			email: {
 				required: true,
-				customEmail: true, // dùng custom rule
+				customEmail: true, // rule custom
 			},
 			password: {
 				required: true,
 				minlength: 8,
-				strongPassword: true,
+				strongPassword: true, // rule custom
 			},
 			confirm_password: {
 				required: true,
@@ -249,7 +249,7 @@
 			},
 		},
 		errorPlacement: function (error, element) {
-			error.addClass("text-danger");
+			error.addClass("text_danger"); // đổi - thành _ cho đồng bộ
 			error.insertAfter(element);
 		},
 		submitHandler: function (form) {
@@ -265,7 +265,7 @@
 				type: "POST",
 				data: formData,
 				beforeSend: function () {
-					$(".btn-primary").prop("disabled", true).text("Đang xử lý...");
+					$(".register_btn_primary").prop("disabled", true).text("Đang xử lý...");
 				},
 				success: function (response) {
 					if (response.success) {
@@ -279,7 +279,7 @@
 					alert("Có lỗi xảy ra, vui lòng thử lại.");
 				},
 				complete: function () {
-					$(".btn-primary").prop("disabled", false).text("Đăng ký tài khoản");
+					$(".register_btn_primary").prop("disabled", false).text("Đăng ký tài khoản");
 				},
 			});
 
@@ -287,7 +287,10 @@
 		},
 	});
 
-	$(".login-form").validate({
+	const $form = $(".auth_form");
+	const $submitBtn = $form.find(".auth_btn-primary");
+
+	$form.validate({
 		rules: {
 			email: {
 				required: true,
@@ -309,37 +312,36 @@
 			},
 		},
 		errorPlacement: function (error, element) {
-			error.addClass("text-danger");
+			error.addClass("auth_error text-danger");
 			error.insertAfter(element);
 		},
-		submitHandler: function (form) {
-			let formData = {
+		submitHandler: function () {
+			const formData = {
 				action: "login_user",
-				email: $("input[name='email']").val(),
-				password: $("input[name='password']").val(),
-				remember: $("input[name='remember']").is(":checked") ? 1 : 0,
+				email: $form.find("input[name='email']").val(),
+				password: $form.find("input[name='password']").val(),
+				remember: $form.find("input[name='remember']").is(":checked") ? 1 : 0,
 			};
 
 			$.ajax({
-				url: custom_ajax.ajax_url, // đã wp_localize_script
+				url: custom_ajax.ajax_url, // wp_localize_script cung cấp
 				type: "POST",
 				data: formData,
 				beforeSend: function () {
-					$(".btn-primary").prop("disabled", true).text("Đang xử lý...");
+					$submitBtn.prop("disabled", true).text("Đang xử lý...");
 				},
 				success: function (response) {
 					if (response.success) {
-						alert("Đăng nhập thành công!");
-						window.location.href = response.data.redirect;
+						window.location.href = response.data.redirect || "/";
 					} else {
-						alert(response.data.message);
+						alert(response.data.message || "Đăng nhập thất bại");
 					}
 				},
 				error: function () {
 					alert("Có lỗi xảy ra, vui lòng thử lại.");
 				},
 				complete: function () {
-					$(".btn-primary").prop("disabled", false).text("Đăng nhập");
+					$submitBtn.prop("disabled", false).text("Đăng nhập");
 				},
 			});
 
@@ -385,6 +387,18 @@
 			selected.push($(this).val());
 		});
 		$('input[name="selected_product"]').val(selected.join(",")).trigger("change");
+	});
+
+	$(".icon_eye").click(function () {
+		var input = $(this).siblings('input[type="password"], input[type="text"]');
+
+		if (input.attr("type") === "password") {
+			input.attr("type", "text"); // Hiển thị mật khẩu
+			$(this).addClass("show"); // Thêm class show vào icon
+		} else {
+			input.attr("type", "password"); // Ẩn mật khẩu
+			$(this).removeClass("show"); // Xóa class show
+		}
 	});
 
 	// ... longpv

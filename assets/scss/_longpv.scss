@@ -883,96 +883,158 @@
     }
 }
 
-.register-container {
-    width: 400px;
-    text-align: center;
+/* Container chính */
+.register_container {
+    max-width: 486px;
+    margin: 0 auto;
+    padding: 0px;
+}
 
-    h2 {
-        font-size: 22px;
-        margin-bottom: 20px;
-        font-weight: bold;
+/* Tiêu đề */
+.register_title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 36px;
+}
+
+/* Form */
+.register_form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Nhóm input */
+.register_form_group input {
+    width: 100%;
+    height: 48px;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #E5E5E5;
+    color: #000;
+    border-radius: 4px;
+    outline: none !important;
+
+    &::placeholder {
+        color: #7F7F7F;
+        font-size: 16px;
+        font-weight: 600;
     }
 
-    .register-form {
-        .form-group {
-            margin-bottom: 15px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: right 16px top 12px;
 
-            input {
-                width: 100%;
-                padding: 12px;
-                border: 1px solid #ddd;
-                border-radius: 6px;
-                font-size: 14px;
+    &[name="name"] {
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 22H5V20.1905C5 17.6921 6.95876 15.6667 9.375 15.6667H14.625C17.0412 15.6667 19 17.6921 19 20.1905V22ZM12 13.8571C9.1005 13.8571 6.75 11.4267 6.75 8.42857C6.75 5.43045 9.1005 3 12 3C14.8995 3 17.25 5.43045 17.25 8.42857C17.25 11.4267 14.8995 13.8571 12 13.8571Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A");
+    }
 
-                &:focus {
-                    outline: none;
-                    border-color: #2563eb;
-                }
-            }
-        }
+    &[name="email"] {
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM12.0606 11.6829L5.64722 6.2377L4.35278 7.7623L12.0731 14.3171L19.6544 7.75616L18.3456 6.24384L12.0606 11.6829Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A");
+    }
+}
 
-        .password-rules {
-            text-align: left;
-            font-size: 13px;
-            margin: 15px 0;
+/* Password rules */
+.register_password_rules {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
-            ul {
-                padding-left: 18px;
-                list-style: none;
+.register_password_rules_title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
 
-                li {
-                    margin-bottom: 4px;
-                }
-            }
-        }
+.register_password_rules_list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
-        .policy {
-            font-size: 12px;
-            color: #444;
-            margin: 15px 0;
+.register_password_rules_item {
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 
-            a {
-                color: #2563eb;
-                text-decoration: none;
-            }
-        }
+    .icon {
+        display: inline-flex;
+    }
+}
 
-        .btn-primary {
-            width: 100%;
-            padding: 12px;
-            background: #2563eb;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-size: 15px;
-            cursor: pointer;
-            margin-bottom: 15px;
+/* Policy */
+.register_policy {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 4px;
+    margin-top: 20px;
+}
 
-            &:hover {
-                background: #1e4ed8;
-            }
-        }
+.register_policy_link {
+    color: #5643FF !important;
+    text-decoration: none;
+}
 
-        .login-text {
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
+.register_policy_link:hover {
+    text-decoration: underline;
+}
 
-        .btn-secondary {
-            width: 100%;
-            padding: 12px;
-            background: transparent;
-            border: 1px solid #2563eb;
-            color: #2563eb;
-            border-radius: 6px;
-            font-size: 15px;
-            cursor: pointer;
+/* Nút bấm */
+.register_btn {
+    display: flex;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    justify-content: center;
+}
 
-            &:hover {
-                background: #2563eb;
-                color: #fff;
-            }
-        }
+.register_btn_primary {
+    background: #fff;
+    border: 1px solid #3E6AE1 !important;
+    color: #3E6AE1 !important;
+}
+
+.register_btn_secondary {
+    background: #3E6AE1;
+    color: #fff;
+}
+
+/* Login text */
+.register_login_text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+/* Error text */
+.text_danger {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+}
+
+.register_form_group_pass {
+    position: relative;
+
+    .icon_eye {
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        cursor: pointer;
+        z-index: 9;
     }
 }
 
