@@ -1038,128 +1038,163 @@
     }
 }
 
-.auth-wrapper {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f9fafb;
-    padding: 20px;
+/* Container chính */
+/* Box login */
+.auth_box {
+    width: 100%;
+    max-width: 486px;
+    margin: 0 auto;
+}
 
-    .auth-box {
-        background: #fff;
-        padding: 40px;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        width: 100%;
-        max-width: 400px;
+/* Tiêu đề */
+.auth_title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #111827;
+}
+
+/* Form group */
+.auth_form_group {
+    margin-bottom: 12px;
+
+    &.register_form_group_pass {
+        margin-bottom: 24px;
     }
+}
 
-    .auth-title {
-        font-size: 24px;
+.auth_label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.auth_input {
+    width: 100%;
+    height: 48px;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #E5E5E5;
+    color: #000;
+    border-radius: 4px;
+    outline: none !important;
+
+    &::placeholder {
+        color: #7F7F7F;
+        font-size: 16px;
         font-weight: 600;
-        margin-bottom: 20px;
-        text-align: center;
     }
 
-    .form-group {
-        margin-bottom: 15px;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: right 16px top 12px;
 
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 6px;
-
-            span {
-                color: red;
-            }
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-            outline: none;
-
-            &:focus {
-                border-color: #2563eb;
-                box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-            }
-        }
+    &[name="name"] {
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 22H5V20.1905C5 17.6921 6.95876 15.6667 9.375 15.6667H14.625C17.0412 15.6667 19 17.6921 19 20.1905V22ZM12 13.8571C9.1005 13.8571 6.75 11.4267 6.75 8.42857C6.75 5.43045 9.1005 3 12 3C14.8995 3 17.25 5.43045 17.25 8.42857C17.25 11.4267 14.8995 13.8571 12 13.8571Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A");
     }
 
-    .input-password {
-        position: relative;
+    &[name="email"] {
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM12.0606 11.6829L5.64722 6.2377L4.35278 7.7623L12.0731 14.3171L19.6544 7.75616L18.3456 6.24384L12.0606 11.6829Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A");
+    }
+}
 
-        .toggle-password {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            font-size: 16px;
-            color: #666;
-        }
+.auth_form {
+    margin-bottom: 24px;
+}
+
+/* Options */
+.auth_form_group_options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.auth_remember {
+    display: flex;
+    align-items: center;
+}
+
+.auth_checkbox {
+    margin-right: 8px;
+    display: none;
+}
+
+.auth_checkbox_label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+    padding-left: 28px;
+    position: relative;
+
+    &::before {
+        content: '';
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 0.330078H12C14.0269 0.330078 15.6699 1.97311 15.6699 4V12C15.6699 14.0269 14.0269 15.6699 12 15.6699H4C1.97311 15.6699 0.330078 14.0269 0.330078 12V4C0.330078 1.97311 1.97311 0.330078 4 0.330078Z' fill='%23FDFDFD'/%3E%3Cpath d='M4 0.330078H12C14.0269 0.330078 15.6699 1.97311 15.6699 4V12C15.6699 14.0269 14.0269 15.6699 12 15.6699H4C1.97311 15.6699 0.330078 14.0269 0.330078 12V4C0.330078 1.97311 1.97311 0.330078 4 0.330078Z' stroke='%238A8A8A' stroke-width='0.66'/%3E%3C/svg%3E%0A");
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 16px;
+        height: 16px;
+        top: 2px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
-    .btn {
-        display: inline-block;
-        padding: 12px 16px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 500;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.2s;
-
-        &.btn-primary {
-            background: #2563eb;
-            color: #fff;
-            border: none;
-
-            &:hover {
-                background: #1e4ed8;
-            }
-        }
-
-        &.btn-outline {
-            background: #fff;
-            border: 1px solid #2563eb;
-            color: #2563eb;
-
-            &:hover {
-                background: #2563eb;
-                color: #fff;
-            }
-        }
-
-        &.w-100 {
-            width: 100%;
+    &.active {
+        &::before {
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4C0 1.79086 1.79086 0 4 0H12C14.2091 0 16 1.79086 16 4V12C16 14.2091 14.2091 16 12 16H4C1.79086 16 0 14.2091 0 12V4Z' fill='%233E6AE1'/%3E%3Cpath d='M4 0.330078H12C14.0269 0.330078 15.6699 1.97312 15.6699 4V12C15.6699 14.0269 14.0269 15.6699 12 15.6699H4C1.97312 15.6699 0.330078 14.0269 0.330078 12V4C0.330078 1.97312 1.97312 0.330078 4 0.330078Z' fill='%233E6AE1'/%3E%3Cpath d='M4 0.330078H12C14.0269 0.330078 15.6699 1.97312 15.6699 4V12C15.6699 14.0269 14.0269 15.6699 12 15.6699H4C1.97312 15.6699 0.330078 14.0269 0.330078 12V4C0.330078 1.97312 1.97312 0.330078 4 0.330078Z' stroke='%233E6AE1' stroke-width='0.66'/%3E%3C/svg%3E%0A");
         }
     }
+}
 
-    .auth-footer {
-        margin-top: 20px;
-        text-align: center;
+/* Links */
+.auth_forgot_link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333 !important;
+    text-decoration: none !important;
+}
 
-        p {
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #555;
-        }
-    }
+/* Buttons */
+.auth_btn {
+    display: flex;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    justify-content: center;
+    text-decoration: none !important;
+    border: 1px solid !important;
+}
 
-    .forgot-link {
-        font-size: 13px;
-        color: #2563eb;
+.auth_btn_primary {
+    background: #3E6AE1;
+    color: #fff !important;
+}
 
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+.auth_btn_outline {
+    background: #fff;
+    color: #3E6AE1 !important;
+}
+
+/* Footer */
+
+.auth_footer_text {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    text-align: center;
 }
 
 .archive_post {

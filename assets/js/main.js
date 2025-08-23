@@ -288,7 +288,7 @@
 	});
 
 	const $form = $(".auth_form");
-	const $submitBtn = $form.find(".auth_btn-primary");
+	const $submitBtn = $form.find(".auth_btn_primary");
 
 	$form.validate({
 		rules: {
@@ -312,7 +312,7 @@
 			},
 		},
 		errorPlacement: function (error, element) {
-			error.addClass("auth_error text-danger");
+			error.addClass("text_danger");
 			error.insertAfter(element);
 		},
 		submitHandler: function () {
@@ -399,6 +399,10 @@
 			input.attr("type", "password"); // Ẩn mật khẩu
 			$(this).removeClass("show"); // Xóa class show
 		}
+	});
+
+	$(".auth_checkbox_label").click(function () {
+		$(this).toggleClass("active");
 	});
 
 	// ... longpv
