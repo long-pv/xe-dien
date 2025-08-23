@@ -283,54 +283,84 @@ if (!empty($endow) && is_array($endow)) :
 <?php endif; ?>
 
 
-<div class="home_latest_news">
+<div class="home_new_list news__list">
 	<div class="container">
-		<div class="heading">
-			<div class="row align-items-center">
-				<div class="col-lg-8">
-					<h2 class="title">
-						Tin Tức Mới Nhất
-					</h2>
-				</div>
-				<div class="col-lg-4">
-					<div class="d-flex justify-content-end">
-						<a href="#" class="link">
-							<span class="text">
-								Xem thêm
-							</span>
-							<span class="icon">
-								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z" fill="#3E6AE1" />
-								</svg>
-							</span>
-						</a>
-					</div>
-				</div>
-			</div>
+		<div class="news__inner">
+			<h2 class="news__heading">
+				Tin Tức Mới Nhất
+			</h2>
+
+			<a href="#" class="news__link">
+				Xem thêm
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+						fill="#3E6AE1" />
+				</svg>
+			</a>
 		</div>
 
-		<div class="list_post">
-			<div class="row">
-				<?php for ($i = 0; $i < 3; $i++): ?>
-					<div class="col-lg-4">
-						<div class="post_item">
-							<a href="#" class="img_wrap">
-								<img src="https://images2.thanhnien.vn/528068263637045248/2024/1/25/c3c8177f2e6142e8c4885dbff89eb92a-65a11aeea03da880-1706156293184503262817.jpg" alt="">
+		<!-- Content Post -->
+		<div class="row gy-4">
+			<?php
+			$args = array(
+				'post_type'      => 'post',
+				'posts_per_page' => 3, // chỉ lấy 1 bài mới nhất
+				'post__not_in'   => array(get_the_ID()), // loại trừ bài hiện tại
+			);
+			$query = new WP_Query($args);
+			if ($query->have_posts()) :
+				while ($query->have_posts()) : $query->the_post();
+			?>
+					<div class="col-md-6 col-lg-4">
+						<article class="post__item" data-mh="post_item">
+							<!-- Thumbnail Post -->
+							<a class="d-block post__thumbnail" href="<?php the_permalink(); ?>">
+								<?php if (has_post_thumbnail()) : ?>
+									<?php the_post_thumbnail('full', array(
+										'fetchpriority' => 'high',
+										'decoding'      => 'async',
+									)); ?>
+								<?php endif; ?>
 							</a>
-							<div class="content">
-								<div class="date">
-									8 Aug 2025
-								</div>
-								<a class="d-flex" href="#">
-									<h3 class="title">
-										Buying Cheap used Transmissions isn't as risky as you think
-									</h3>
+
+							<!-- Content Post -->
+							<div class="post__content" data-mh="post__content">
+								<!-- Title Post -->
+								<a class="d-flex post__title" href="<?php the_permalink(); ?>">
+									<h3 class="line-2"><?php the_title(); ?></h3>
 								</a>
+
+								<!-- Excerpt Post -->
+								<p class="post__desc line-3">
+									<?php echo wp_trim_words(get_the_excerpt(), 40, '...'); ?>
+								</p>
+
+								<!-- Info Post -->
+								<div class="post__info d-flex">
+									<!-- Author Post -->
+									<div class="post__category">
+										<!-- Icon -->
+										<img src="<?php echo get_template_directory_uri() . '/assets/images/icon_1.svg'; ?>" alt="icon 1">
+										<!-- Link Author -->
+										<a href="<?php echo home_url('/'); ?>" class="post__category--name">
+											VinFast Đức Nghĩa
+										</a>
+									</div>
+
+									<!-- Date -->
+									<div class="post__date">
+										<?php echo get_the_date('l, j/n/Y, H:i'); ?>
+									</div>
+								</div>
 							</div>
-						</div>
+						</article>
 					</div>
-				<?php endfor; ?>
-			</div>
+			<?php
+				endwhile;
+				wp_reset_postdata();
+			endif;
+			?>
 		</div>
 	</div>
 </div>
