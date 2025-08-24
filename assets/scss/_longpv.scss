@@ -1383,13 +1383,20 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
 }
 
 .vinfast_intro_left {
-    position: absolute;
-    left: 0px;
-    top: 60px;
-    width: 100%;
+    @include media-breakpoint-up(lg) {
+        position: absolute;
+        left: 0px;
+        top: 60px;
+        width: 100%;
+    }
 }
 
 .vinfast_intro_content {
@@ -1431,7 +1438,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
 }
 
 .vision_section_overlay {
@@ -1443,22 +1454,29 @@
             rgba(0, 0, 0, .10) 75%,
             rgba(0, 0, 0, 0) 100%);
     z-index: 1;
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
 }
 
 /* Container */
 .vision_section_container {
-    position: absolute;
-    width: 100%;
-    bottom: 0px;
-    left: 0px;
-    z-index: 2;
-    padding: 30px;
+    @include media-breakpoint-up(lg) {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        left: 0px;
+        z-index: 2;
+        padding: 30px;
 
-    .col-lg-3 {
-        border-right: 1px solid #E6E6E6;
+        .col-lg-3 {
+            border-right: 1px solid #E6E6E6;
 
-        &:last-child {
-            border-right: none;
+            &:last-child {
+                border-right: none;
+            }
         }
     }
 }
@@ -1475,14 +1493,22 @@
 .vision_item_title {
     font-size: 16px;
     font-weight: 600;
-    color: #fff;
+    color: #000;
     margin-bottom: 16px;
+
+    @include media-breakpoint-up(lg) {
+        color: #fff;
+    }
 }
 
 .vision_item_desc {
     font-size: 14px;
     font-weight: 400;
-    color: #fff;
+    color: #000;
+
+    @include media-breakpoint-up(lg) {
+        color: #fff;
+    }
 }
 
 .brand_history {
@@ -1498,24 +1524,13 @@
     text-align: center;
 }
 
-.brand_history_list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-}
+.brand_history_list {}
 
 .brand_history_item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
-}
-
-.brand_history_image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 16px;
 }
 
 .brand_history_content {
@@ -1530,6 +1545,14 @@
 
 .brand_history_text {
     font-size: 16px;
-    line-height: 1.5;
-    color: #222;
+    font-weight: 600;
+    color: #000;
+    margin: 0px;
+}
+
+.brand_history_img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 12px;
 }

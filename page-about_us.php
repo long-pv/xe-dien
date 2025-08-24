@@ -28,7 +28,7 @@ get_header();
 
         <!-- Slogan -->
         <div class="vinfast_block_slogan">
-            <div class="row">
+            <div class="row gy-4">
                 <div class="col-lg-8">
                     <div class="editor">
                         <p><strong>ĐỒNG HÀNH CÙNG BẠN <span class="vinfast_block_slogan_highlight">TRÊN HÀNH TRÌNH XANH</span></strong></p>
@@ -71,13 +71,13 @@ get_header();
 
         <!-- Gallery -->
         <div class="vinfast_block_gallery">
-            <div class="row">
+            <div class="row gy-3">
                 <div class="col-lg-6">
-                    <div class="row">
-                        <div class="col-lg-6">
+                    <div class="row gy-3">
+                        <div class="col-md-6">
                             <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-md-6">
                             <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
                         </div>
                     </div>
@@ -121,8 +121,8 @@ get_header();
             <div class="vision_section_overlay" aria-hidden="true"></div>
 
             <div class="vision_section_container">
-                <div class="row">
-                    <div class="col-lg-3">
+                <div class="row gy-4">
+                    <div class="col-6 col-lg-3">
                         <article class="vision_item">
                             <h3 class="vision_item_title">Tầm nhìn</h3>
                             <div class="vision_item_desc">
@@ -130,7 +130,7 @@ get_header();
                             </div>
                         </article>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-6 col-lg-3">
                         <article class="vision_item">
                             <h3 class="vision_item_title">Sứ mệnh</h3>
                             <div class="vision_item_desc">
@@ -138,7 +138,7 @@ get_header();
                             </div>
                         </article>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-6 col-lg-3">
                         <article class="vision_item">
                             <h3 class="vision_item_title">Triết lý thương hiệu</h3>
                             <div class="vision_item_desc">
@@ -146,7 +146,7 @@ get_header();
                             </div>
                         </article>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-6 col-lg-3">
                         <article class="vision_item">
                             <h3 class="vision_item_title">Giá trị cốt lõi</h3>
                             <div class="vision_item_desc">
@@ -165,47 +165,57 @@ get_header();
     <div class="container">
         <h2 class="brand_history_title">Lịch sử thương hiệu</h2>
         <div class="brand_history_list">
-            <!-- Item 1 -->
-            <div class="brand_history_item">
-                <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                <div class="brand_history_content">
-                    <p class="brand_history_date">15.08.2023</p>
-                    <p class="brand_history_text">
-                        VinFast chính thức niêm yết trên Nasdaq Global Select Market
-                    </p>
+            <div class="row gy-4">
+                <!-- Item 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="brand_history_item">
+                        <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
+                        <div class="brand_history_content">
+                            <div class="brand_history_date">15.08.2023</div>
+                            <h3 class="brand_history_text">
+                                VinFast chính thức niêm yết trên Nasdaq Global Select Market
+                            </h3>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Item 2 -->
-            <div class="brand_history_item">
-                <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                <div class="brand_history_content">
-                    <p class="brand_history_date">21.04.2023</p>
-                    <p class="brand_history_text">
-                        VinFast chính thức bàn giao xe VF 5 Plus cho khách hàng
-                    </p>
+                <!-- Item 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="brand_history_item">
+                        <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
+                        <div class="brand_history_content">
+                            <div class="brand_history_date">21.04.2023</div>
+                            <h3 class="brand_history_text">
+                                VinFast chính thức bàn giao xe VF 5 Plus cho khách hàng
+                            </h3>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Item 3 -->
-            <div class="brand_history_item">
-                <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                <div class="brand_history_content">
-                    <p class="brand_history_date">27.03.2023</p>
-                    <p class="brand_history_text">
-                        VinFast chính thức bàn giao xe VF 9 cho khách hàng
-                    </p>
+                <!-- Item 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="brand_history_item">
+                        <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
+                        <div class="brand_history_content">
+                            <div class="brand_history_date">27.03.2023</div>
+                            <h3 class="brand_history_text">
+                                VinFast chính thức bàn giao xe VF 9 cho khách hàng
+                            </h3>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Item 4 -->
-            <div class="brand_history_item">
-                <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                <div class="brand_history_content">
-                    <p class="brand_history_date">26.04.2022</p>
-                    <p class="brand_history_text">
-                        VinFast ra mắt 5 mẫu xe máy điện thế hệ mới sử dụng pin LFP
-                    </p>
+                <!-- Item 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="brand_history_item">
+                        <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
+                        <div class="brand_history_content">
+                            <div class="brand_history_date">26.04.2022</div>
+                            <h3 class="brand_history_text">
+                                VinFast ra mắt 5 mẫu xe máy điện thế hệ mới sử dụng pin LFP
+                            </h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
