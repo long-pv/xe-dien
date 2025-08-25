@@ -17,210 +17,217 @@
 get_header();
 ?>
 
+<?php
+$section_1 = get_field('section_1');
+?>
 
-<div class="vinfast_block">
-    <div class="container">
-        <!-- Header -->
-        <div class="vinfast_block_logo">
-            <?php $logo_url = get_template_directory_uri() . '/assets/images/logo.svg'; ?>
-            <img src="<?php echo $logo_url; ?>" class="vinfast_block_logo_img" alt="logo">
-        </div>
-
-        <!-- Slogan -->
-        <div class="vinfast_block_slogan">
-            <div class="row gy-4">
-                <div class="col-lg-8">
-                    <div class="editor">
-                        <p><strong>ĐỒNG HÀNH CÙNG BẠN <span class="vinfast_block_slogan_highlight">TRÊN HÀNH TRÌNH XANH</span></strong></p>
-                        <p>
-                            VinFast Đức Nghĩa là đại lý ủy quyền chính thức phân phối xe máy điện VinFast, cung cấp đầy đủ các dịch vụ
-                            cao cấp nhất cùng dịch vụ lốp thay, bảo dưỡng và lắp đặt – thay thế phụ tùng chính hãng.
-                        </p>
-                        <p>
-                            Địa chỉ: 576 Lạc Long Quân, Phú Thượng, Tây Hồ, Hà Nội (đối diện cổng chính xe Lotte Mall Tây Hồ) là đại lý
-                            đầu tiên và lớn nhất, phục vụ khách hàng với đội ngũ tư vấn kỹ thuật viên giàu kinh nghiệm, dịch vụ nhanh chóng
-                            và đúng tiến độ.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <!-- Contact -->
-                    <h3 class="vinfast_block_contact_title">Thông Tin Liên Hệ</h3>
-                    <div class="vinfast_block_contact">
-                        <div class="vinfast_block_contact_img">
-                            <img class="vinfast_block_contact_qr" src="<?php echo get_template_directory_uri() . '/assets/images/QR.png'; ?>" alt="QR Code">
-                        </div>
-                        <div class="vinfast_block_contact_content">
-                            <div class="vinfast_block_contact_item">
-                                <img class="vinfast_block_contact_icon" src="<?php echo get_template_directory_uri() . '/assets/images/icon_2.svg'; ?>" alt="QR Code">
-                                <span>0968718446</span>
-                            </div>
-                            <div class="vinfast_block_contact_item">
-                                <img class="vinfast_block_contact_icon" src="<?php echo get_template_directory_uri() . '/assets/images/icon_2.svg'; ?>" alt="QR Code">
-                                <span>fb.com/vinfastducnghia</span>
-                            </div>
-                            <div class="vinfast_block_contact_item">
-                                <img class="vinfast_block_contact_icon" src="<?php echo get_template_directory_uri() . '/assets/images/icon_2.svg'; ?>" alt="QR Code">
-                                <span>0968718446</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gallery -->
-        <div class="vinfast_block_gallery">
-            <div class="row gy-3">
-                <div class="col-lg-6">
-                    <div class="row gy-3">
-                        <div class="col-md-6">
-                            <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                        </div>
-                        <div class="col-md-6">
-                            <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img class="vinfast_block_gallery_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<section class="vinfast_intro">
-    <img class="vinfast_intro_bg" src="<?php echo get_template_directory_uri() . '/assets/images/Group_33.png'; ?>" alt="Giới thiệu">
-    <div class="vinfast_intro_left">
+<?php if ($section_1): ?>
+    <div class="vinfast_block">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="vinfast_intro_content">
-                        <h3 class="vinfast_intro_title">Giới thiệu về</h3>
-                        <h2 class="vinfast_intro_company">Công ty VinFast</h2>
-                        <div class="vinfast_intro_text editor">
-                            VinFast là công ty thành viên thuộc Tập đoàn Vingroup, một trong những
-                            Tập đoàn kinh tế tư nhân đa ngành lớn nhất Châu Á. <br><br>
-                            Với sứ mệnh “Vì một tương lai xanh cho mọi người”, VinFast không ngừng
-                            sáng tạo để tạo ra các sản phẩm đẳng cấp, thông minh, dịch vụ xuất sắc cho mọi người.
+            <!-- Header -->
+            <?php if (!empty($section_1['logo'])): ?>
+                <div class="vinfast_block_logo">
+                    <?php echo wp_get_attachment_image($section_1['logo'], 'full', false, ['class' => 'vinfast_block_logo_img']); ?>
+                </div>
+            <?php endif; ?>
+
+            <!-- Slogan -->
+            <div class="vinfast_block_slogan">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <?php if (!empty($section_1['mo_ta_gioi_thieu'])): ?>
+                            <div class="editor">
+                                <?php echo $section_1['mo_ta_gioi_thieu']; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-lg-4">
+                        <!-- Contact -->
+                        <h3 class="vinfast_block_contact_title">Thông Tin Liên Hệ</h3>
+                        <div class="vinfast_block_contact">
+                            <?php if (!empty($section_1['qr_code'])): ?>
+                                <div class="vinfast_block_contact_img">
+                                    <?php echo wp_get_attachment_image($section_1['qr_code'], 'full', false, ['class' => 'vinfast_block_contact_qr']); ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($section_1['thong_tin_lien_he']) && is_array($section_1['thong_tin_lien_he'])): ?>
+                                <div class="vinfast_block_contact_content">
+                                    <?php foreach ($section_1['thong_tin_lien_he'] as $item): ?>
+                                        <div class="vinfast_block_contact_item">
+                                            <?php if (!empty($item['icon'])): ?>
+                                                <?php echo wp_get_attachment_image($item['icon'], 'full', false, ['class' => 'vinfast_block_contact_icon']); ?>
+                                            <?php endif; ?>
+                                            <?php if (!empty($item['text'])): ?>
+                                                <span><?php echo $item['text']; ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="vinfast_block_gallery">
+                <div class="row gy-3">
+                    <div class="col-lg-6">
+                        <div class="row gy-3">
+                            <?php if (!empty($section_1['hinh_anh_1'])): ?>
+                                <div class="col-md-6">
+                                    <?php echo wp_get_attachment_image($section_1['hinh_anh_1'], 'full', false, ['class' => 'vinfast_block_gallery_img']); ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (!empty($section_1['hinh_anh_2'])): ?>
+                                <div class="col-md-6">
+                                    <?php echo wp_get_attachment_image($section_1['hinh_anh_2'], 'full', false, ['class' => 'vinfast_block_gallery_img']); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <?php if (!empty($section_1['hinh_anh_3'])): ?>
+                            <?php echo wp_get_attachment_image($section_1['hinh_anh_3'], 'full', false, ['class' => 'vinfast_block_gallery_img']); ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+<?php endif; ?>
+
+
+<?php
+$section_2 = get_field('section_2');
+
+$has_title   = !empty($section_2['tieu_de']);
+$has_company = !empty($section_2['ten_cong_ty']);
+$has_msg     = !empty($section_2['thong_diep']);
+$has_bg      = !empty($section_2['anh_san_pham']);
+
+if ($has_title || $has_company || $has_msg || $has_bg) : ?>
+    <section class="vinfast_intro">
+        <?php if ($has_bg) : ?>
+            <?php
+            // Ảnh nền: dùng ảnh ACF (anh_san_pham) → class vinfast_intro_bg
+            echo wp_get_attachment_image(
+                $section_2['anh_san_pham'],
+                'full',
+                false,
+                array('class' => 'vinfast_intro_bg', 'alt' => 'Giới thiệu')
+            );
+            ?>
+        <?php endif; ?>
+
+        <div class="vinfast_intro_left">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="vinfast_intro_content">
+                            <?php if ($has_title) : ?>
+                                <h3 class="vinfast_intro_title"><?php echo $section_2['tieu_de']; ?></h3>
+                            <?php endif; ?>
+
+                            <?php if ($has_company) : ?>
+                                <h2 class="vinfast_intro_company"><?php echo $section_2['ten_cong_ty']; ?></h2>
+                            <?php endif; ?>
+
+                            <?php if ($has_msg) : ?>
+                                <div class="vinfast_intro_text editor">
+                                    <?php echo $section_2['thong_diep']; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
 
 
 <!-- SECTION: Vision / Mission / Philosophy / Core Values -->
-<section class="vision_section">
-    <div class="container">
-        <div class="vision_section_media">
-            <img src="https://picsum.photos/id/1018/1920/1080" alt="Ảnh nền nhà máy và khuôn viên" class="vision_section_bg">
-            <div class="vision_section_overlay" aria-hidden="true"></div>
 
-            <div class="vision_section_container">
-                <div class="row gy-4">
-                    <div class="col-6 col-lg-3">
-                        <article class="vision_item">
-                            <h3 class="vision_item_title">Tầm nhìn</h3>
-                            <div class="vision_item_desc">
-                                Trở thành thương hiệu xe điện thông minh thúc đẩy mạnh mẽ cuộc cách mạng xe điện toàn cầu.
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <article class="vision_item">
-                            <h3 class="vision_item_title">Sứ mệnh</h3>
-                            <div class="vision_item_desc">
-                                Vì một tương lai xanh cho mọi người.
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <article class="vision_item">
-                            <h3 class="vision_item_title">Triết lý thương hiệu</h3>
-                            <div class="vision_item_desc">
-                                Đặt khách hàng làm trọng tâm, không ngừng sáng tạo để tạo ra các sản phẩm đẳng cấp và trải nghiệm xuất sắc cho mọi người.
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <article class="vision_item">
-                            <h3 class="vision_item_title">Giá trị cốt lõi</h3>
-                            <div class="vision_item_desc">
-                                Sản phẩm đẳng cấp, giá tốt, chính sách hậu mãi vượt trội.
-                            </div>
-                        </article>
-                    </div>
+<?php
+$section_3 = get_field('section_3');
+if ($section_3) :
+?>
+    <section class="vision_section">
+        <div class="container">
+            <div class="vision_section_media">
+                <?php if (!empty($section_3['background'])) : ?>
+                    <?php echo wp_get_attachment_image($section_3['background'], 'full', false, [
+                        'class' => 'vision_section_bg',
+                        'alt'   => 'Ảnh nền nhà máy và khuôn viên'
+                    ]); ?>
+                <?php endif; ?>
+                <div class="vision_section_overlay" aria-hidden="true"></div>
+
+                <div class="vision_section_container">
+                    <?php if (!empty($section_3['gia_tri_cot_loi']) && is_array($section_3['gia_tri_cot_loi'])) : ?>
+                        <div class="row gy-4">
+                            <?php foreach ($section_3['gia_tri_cot_loi'] as $item) : ?>
+                                <?php if (!empty($item['tieu_de']) || !empty($item['mo_ta'])) : ?>
+                                    <div class="col-6 col-lg-3">
+                                        <article class="vision_item">
+                                            <?php if (!empty($item['tieu_de'])) : ?>
+                                                <h3 class="vision_item_title"><?php echo $item['tieu_de']; ?></h3>
+                                            <?php endif; ?>
+                                            <?php if (!empty($item['mo_ta'])) : ?>
+                                                <div class="vision_item_desc"><?php echo $item['mo_ta']; ?></div>
+                                            <?php endif; ?>
+                                        </article>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
+<?php
+$section_4 = get_field('section_4');
+if (!empty($section_4)) : ?>
+    <section class="brand_history">
+        <div class="container">
+            <?php if (!empty($section_4['tieu_de'])) : ?>
+                <h2 class="brand_history_title"><?php echo $section_4['tieu_de']; ?></h2>
+            <?php endif; ?>
 
-<section class="brand_history">
-    <div class="container">
-        <h2 class="brand_history_title">Lịch sử thương hiệu</h2>
-        <div class="brand_history_list">
-            <div class="row gy-4">
-                <!-- Item 1 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="brand_history_item">
-                        <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                        <div class="brand_history_content">
-                            <div class="brand_history_date">15.08.2023</div>
-                            <h3 class="brand_history_text">
-                                VinFast chính thức niêm yết trên Nasdaq Global Select Market
-                            </h3>
-                        </div>
+            <?php if (!empty($section_4['danh_sach_su_kien'])) : ?>
+                <div class="brand_history_list">
+                    <div class="row gy-4">
+                        <?php foreach ($section_4['danh_sach_su_kien'] as $item) : ?>
+                            <?php if (!empty($item['ten']) && !empty($item['ngay_dien_ra'])) : ?>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="brand_history_item">
+                                        <?php if (!empty($item['hinh_anh'])) : ?>
+                                            <?php echo wp_get_attachment_image($item['hinh_anh'], 'full', false, ['class' => 'brand_history_img']); ?>
+                                        <?php else : ?>
+                                            <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="Default">
+                                        <?php endif; ?>
+
+                                        <div class="brand_history_content">
+                                            <div class="brand_history_date">
+                                                <?php echo str_replace('/', '.', $item['ngay_dien_ra']); ?>
+                                            </div>
+                                            <h3 class="brand_history_text"><?php echo $item['ten']; ?></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-
-                <!-- Item 2 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="brand_history_item">
-                        <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                        <div class="brand_history_content">
-                            <div class="brand_history_date">21.04.2023</div>
-                            <h3 class="brand_history_text">
-                                VinFast chính thức bàn giao xe VF 5 Plus cho khách hàng
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="brand_history_item">
-                        <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                        <div class="brand_history_content">
-                            <div class="brand_history_date">27.03.2023</div>
-                            <h3 class="brand_history_text">
-                                VinFast chính thức bàn giao xe VF 9 cho khách hàng
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="col-md-6 col-lg-3">
-                    <div class="brand_history_item">
-                        <img class="brand_history_img" src="<?php echo get_template_directory_uri() . '/assets/images/Frame_92.png'; ?>" alt="QR Code">
-                        <div class="brand_history_content">
-                            <div class="brand_history_date">26.04.2022</div>
-                            <h3 class="brand_history_text">
-                                VinFast ra mắt 5 mẫu xe máy điện thế hệ mới sử dụng pin LFP
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 
 <?php
