@@ -91,7 +91,12 @@ get_header();
 			<button type="submit" class="register_btn register_btn_primary">Đăng ký tài khoản</button>
 
 			<p class="register_login_text">Đã có tài khoản?</p>
-			<button type="button" class="register_btn register_btn_secondary">Đăng nhập</button>
+			<?php
+			$login_page = get_field('login_page', 'option'); // ID trang đăng nhập
+			$login_url  = $login_page ? get_permalink($login_page) : '#';
+			?>
+
+			<a href="<?php echo $login_url; ?>" class="register_btn register_btn_secondary">Đăng nhập</a>
 		</form>
 	</div>
 </div>

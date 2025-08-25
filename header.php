@@ -98,7 +98,9 @@
 									<?php
 									if (WC()->cart) {
 										$count = WC()->cart->get_cart_contents_count();
-										echo '<span class="count">' . $count . '</span>';
+										if ($count > 0) {
+											echo '<span class="count">' . $count . '</span>';
+										}
 									}
 									?>
 								</a>
@@ -106,11 +108,9 @@
 								<?php
 								if (! is_cart() && ! is_checkout()) :
 								?>
-									<div class="cart_mini">
-										<div class="list_product">
-											<?php if (WC()->cart->is_empty()) : ?>
-												<p>Giỏ hàng trống.</p>
-											<?php else : ?>
+									<?php if (!WC()->cart->is_empty()) : ?>
+										<div class="cart_mini">
+											<div class="list_product">
 												<?php foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) :
 													$product   = $cart_item['data'];
 													$product_id = $cart_item['product_id'];
@@ -146,10 +146,9 @@
 														</div>
 													</div>
 												<?php endforeach; ?>
-											<?php endif; ?>
-										</div>
 
-										<?php if (! WC()->cart->is_empty()) : ?>
+											</div>
+
 											<div class="sub_total">
 												<div class="row align-items-center">
 													<div class="col-4">
@@ -198,33 +197,61 @@
 													</div>
 												</div>
 											</div>
-										<?php endif; ?>
-									</div>
+										</div>
+									<?php endif; ?>
 								<?php endif; ?>
 							</div>
 
+							<?php
+							$login_page        = get_field('login_page', 'option');        // int ID
+							$registration_page = get_field('registration_page', 'option'); // int ID
+
+							$login_url        = $login_page ? get_permalink($login_page) : '#';
+							$registration_url = $registration_page ? get_permalink($registration_page) : '#';
+
+							// Lấy tên user nếu đã login
+							$user_display_name = 'Tài khoản';
+							if (is_user_logged_in()) {
+								$current_user = wp_get_current_user();
+								$first_name   = $current_user->first_name;
+								$last_name    = $current_user->last_name;
+
+								if ($first_name || $last_name) {
+									$user_display_name = trim($first_name . ' ' . $last_name);
+								} else {
+									$user_display_name = $current_user->display_name; // fallback
+								}
+							}
+							?>
+
 							<div class="my_account">
-								Tài khoản
+								<?php echo $user_display_name; ?>
 
-								<!-- Account CTA Card -->
-								<div class="accountCTA" role="dialog" aria-labelledby="accountCTA_title" aria-modal="true">
-									<div class="accountCTA_card">
-										<div class="accountCTA_title">
-											Đăng ký nhận tư vấn ngay! Ưu đãi mỗi ngày tại Vinfast Đức Nghĩa
-										</div>
+								<?php if (!is_user_logged_in()) : ?>
+									<!-- Account CTA Card -->
+									<div class="accountCTA" role="dialog" aria-labelledby="accountCTA_title" aria-modal="true">
+										<div class="accountCTA_card">
+											<div class="accountCTA_title">
+												Đăng ký nhận tư vấn ngay! Ưu đãi mỗi ngày tại Vinfast Đức Nghĩa
+											</div>
 
-										<a href="#" class="accountCTA_button">
-											Đăng nhập
-										</a>
+											<?php if ($login_url): ?>
+												<a href="<?php echo $login_url; ?>" class="accountCTA_button">
+													Đăng nhập
+												</a>
+											<?php endif; ?>
 
-										<div class="accountCTA_footnote">
-											<span class="accountCTA_text">
-												Bạn là khách hàng mới?
-											</span>
-											<a href="#" class="accountCTA_link">Đăng ký ngay</a>
+											<div class="accountCTA_footnote">
+												<span class="accountCTA_text">
+													Bạn là khách hàng mới?
+												</span>
+												<?php if ($registration_url): ?>
+													<a href="<?php echo $registration_url; ?>" class="accountCTA_link">Đăng ký ngay</a>
+												<?php endif; ?>
+											</div>
 										</div>
 									</div>
-								</div>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

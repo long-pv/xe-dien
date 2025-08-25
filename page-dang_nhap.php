@@ -65,9 +65,14 @@ get_header();
 				<button type="submit" class="auth_btn auth_btn_primary">Đăng nhập</button>
 			</form>
 
+			<?php
+			$registration_page = get_field('registration_page', 'option'); // ID trang đăng ký
+			$registration_url  = $registration_page ? get_permalink($registration_page) : '#';
+			?>
+
 			<div class="auth_footer">
 				<p class="auth_footer_text">Chưa có tài khoản?</p>
-				<a href="/register" class="auth_btn auth_btn_outline">Đăng ký tài khoản</a>
+				<a href="<?php echo $registration_url; ?>" class="auth_btn auth_btn_outline">Đăng ký tài khoản</a>
 			</div>
 		</div>
 	</div>
